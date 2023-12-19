@@ -1,0 +1,8 @@
+*.vsconfig
+*.csproj
+*.sln
+SLProjectTrotUnity/.vs/
+SLProjectTrotUnity/Library/
+SLProjectTrotUnity/Logs/
+SLProjectTrotUnity/UserSettings/
+SLProjectTrotUnity/obj/
