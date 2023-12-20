@@ -12,6 +12,6 @@ public class TTSceneStepLogo : MonoBehaviour
     //-----------------------------------------------------
     private void HandleStepLogoFinish()
 	{
-        SceneManager.LoadScene("TSScenePatcher");
+        SceneManager.LoadScene("TTScenePatcher");
 	}
 }

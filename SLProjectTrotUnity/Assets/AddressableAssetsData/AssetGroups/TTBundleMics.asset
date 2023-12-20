@@ -10,21 +10,21 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: bbb281ee3bf0b054c82ac2347e9e782c, type: 3}
-  m_Name: TTBundleScene
+  m_Name: TTBundleMics
   m_EditorClassIdentifier: 
-  m_GroupName: TTBundleScene
+  m_GroupName: TTBundleMics
   m_Data:
     m_SerializedData: []
-  m_GUID: ca943cb28d71b37468907adfd8df0657
+  m_GUID: f0c83f2f9289c574bb6885fcf579b087
   m_SerializeEntries:
-  - m_GUID: a265cbc502185e04e8c0d1a08831d1ab
-    m_Address: TTSceneMaster
+  - m_GUID: 42e9fbb08643d1a4a8d469915b7dee1d
+    m_Address: NEXON Lv2 Gothic Bold
     m_ReadOnly: 0
     m_SerializedLabels:
     - Main
     FlaggedDuringContentUpdateRestriction: 0
-  - m_GUID: 48953631acb9d2c44aaa6d8dbd81e73d
-    m_Address: TTSceneUIRoot
+  - m_GUID: 0b010b9f14eff8648af8806bf1d01ea1
+    m_Address: Typo_SsangmunDongB
     m_ReadOnly: 0
     m_SerializedLabels:
     - Main
@@ -33,5 +33,5 @@ MonoBehaviour:
   m_Settings: {fileID: 11400000, guid: 14bdc69b63a9cdb41b9e073210868ecd, type: 2}
   m_SchemaSet:
     m_Schemas:
-    - {fileID: 11400000, guid: 2bc7bc1f245641f488e18e14bf72de17, type: 2}
-    - {fileID: 11400000, guid: f60c2fb493e2c994494705c4303a6d84, type: 2}
+    - {fileID: 11400000, guid: fb52aa4d6bd670947b5abfdcf05b6a99, type: 2}
+    - {fileID: 11400000, guid: 4073912ec5652134e87168e240b384bd, type: 2}

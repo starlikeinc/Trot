@@ -1,4 +1,3 @@
-using CodiceApp.EventTracking.Plastic;
 using Spine;
 using Spine.Unity;
 using System.Collections.Generic;

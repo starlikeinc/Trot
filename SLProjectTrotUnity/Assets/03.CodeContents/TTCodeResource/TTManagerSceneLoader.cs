@@ -7,14 +7,15 @@ public class TTManagerSceneLoader : CManagerSceneLoaderBase
 	//---------------------------------------------------------------------------------------------
 	public enum ESceneName
 	{
-		SceneLogin,
-		SceneLobby,
+		TTSceneMaster,	
 	}
 
 
 	//---------------------------------------------------------------------------------------------
-	public void DoMgrSceneLoaderLoad(ESceneName eSceneName)
+	public void DoMgrSceneLoaderGoToMaster()
 	{
-
+		ProtSceneLoaderSingle(ESceneName.TTSceneMaster.ToString(), () => { 
+			
+		});
 	}
 }

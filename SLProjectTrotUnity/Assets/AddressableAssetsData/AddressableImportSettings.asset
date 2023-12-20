@@ -58,3 +58,14 @@ MonoBehaviour:
     groupTemplateApplicationMode: 0
     simplified: 1
     addressReplacement: 
+  - path: Assets/01.AssetBundle/30.BundleMics/*.*
+    matchType: 0
+    groupName: TTBundleMics
+    LabelMode: 0
+    labelRefs:
+    - m_LabelString: Main
+    dynamicLabels: []
+    groupTemplate: {fileID: 11400000, guid: c357f2f724ec5f84b93296f2e191ff43, type: 2}
+    groupTemplateApplicationMode: 0
+    simplified: 1
+    addressReplacement: 
