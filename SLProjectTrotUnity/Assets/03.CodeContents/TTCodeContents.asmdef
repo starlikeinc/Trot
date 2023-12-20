@@ -1,0 +1,20 @@
+{
+    "name": "TTCodeContents",
+    "rootNamespace": "",
+    "references": [
+        "GUID:457ee40f3a1fa0c4fb1589f4a0ef3561",
+        "GUID:36c45487fbc1e2943bbbc035470034d5",
+        "GUID:6055be8ebefd69e48b49212b09b47b2f",
+        "GUID:9e24947de15b9834991c9d8411ea37cf",
+        "GUID:21d1eb854b91ade49bc69a263d12bee2"
+    ],
+    "includePlatforms": [],
+    "excludePlatforms": [],
+    "allowUnsafeCode": false,
+    "overrideReferences": false,
+    "precompiledReferences": [],
+    "autoReferenced": true,
+    "defineConstraints": [],
+    "versionDefines": [],
+    "noEngineReferences": false
+}

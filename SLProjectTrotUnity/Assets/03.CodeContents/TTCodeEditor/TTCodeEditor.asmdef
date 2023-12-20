@@ -1,0 +1,17 @@
+{
+    "name": "TTCodeEditor",
+    "rootNamespace": "",
+    "references": [
+        "GUID:a3fb0ea93ea79ec41b021e2433e18154",
+        "GUID:7bea2f702c8923849b2fd8c7aab3642f"
+    ],
+    "includePlatforms": [],
+    "excludePlatforms": [],
+    "allowUnsafeCode": false,
+    "overrideReferences": false,
+    "precompiledReferences": [],
+    "autoReferenced": true,
+    "defineConstraints": [],
+    "versionDefines": [],
+    "noEngineReferences": false
+}

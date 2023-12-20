@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: -8053267367931122791}
   - component: {fileID: 2260220993094810015}
   m_Layer: 0
-  m_Name: TSPrefabMainManager
+  m_Name: TTPrefabManager
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
