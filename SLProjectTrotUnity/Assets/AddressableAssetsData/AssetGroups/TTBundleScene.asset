@@ -1,0 +1,43 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bbb281ee3bf0b054c82ac2347e9e782c, type: 3}
+  m_Name: TTBundleScene
+  m_EditorClassIdentifier: 
+  m_GroupName: TTBundleScene
+  m_Data:
+    m_SerializedData: []
+  m_GUID: ca943cb28d71b37468907adfd8df0657
+  m_SerializeEntries:
+  - m_GUID: 87e4b02e61757cc43a9531f47276d8b5
+    m_Address: TSSceneLobby
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Main
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: a265cbc502185e04e8c0d1a08831d1ab
+    m_Address: TSSceneLogin
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Main
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 48953631acb9d2c44aaa6d8dbd81e73d
+    m_Address: TSSceneUIRoot
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Main
+    FlaggedDuringContentUpdateRestriction: 0
+  m_ReadOnly: 0
+  m_Settings: {fileID: 11400000, guid: 14bdc69b63a9cdb41b9e073210868ecd, type: 2}
+  m_SchemaSet:
+    m_Schemas:
+    - {fileID: 11400000, guid: 2bc7bc1f245641f488e18e14bf72de17, type: 2}
+    - {fileID: 11400000, guid: f60c2fb493e2c994494705c4303a6d84, type: 2}
