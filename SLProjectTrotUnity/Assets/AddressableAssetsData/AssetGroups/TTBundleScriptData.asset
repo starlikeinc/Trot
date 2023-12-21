@@ -18,7 +18,7 @@ MonoBehaviour:
   m_GUID: 7dc542a98bcbeae4884eba921e1d4835
   m_SerializeEntries:
   - m_GUID: 0758620d89545444892c12ab3a7b3c27
-    m_Address: TSPrefabScriptData
+    m_Address: TTPrefabScriptData
     m_ReadOnly: 0
     m_SerializedLabels:
     - Main

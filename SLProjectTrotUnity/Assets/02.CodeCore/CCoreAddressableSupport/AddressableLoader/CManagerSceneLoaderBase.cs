@@ -71,7 +71,7 @@ public abstract class CManagerSceneLoaderBase : CManagerAddressableBase<CManager
 		PrivLoadMainScene(strAddressableName);
 	}
 
-	protected void ProtSceneLoaderAdditive(string strAddressableName, UnityAction<string> delFinish, UnityAction<string, float> delProgress)
+	protected void ProtSceneLoaderAdditive(string strAddressableName, UnityAction<string> delFinish, UnityAction<string, float> delProgress = null)
 	{
 		if (m_dicSceneInstance.ContainsKey(strAddressableName))
 		{

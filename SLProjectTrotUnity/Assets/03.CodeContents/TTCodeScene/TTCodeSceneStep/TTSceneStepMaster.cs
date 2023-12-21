@@ -5,15 +5,42 @@ using UnityEngine;
 //  UI를 비롯한 모든 정적 로드 객체를 로드한다. 이후 모든 씬은 Additive  로 추가 삭제한다. 
 //  게임 종료시 까지 언로드 하지 않는다.
 
-public class TTSceneStepMaster : MonoBehaviour
+public class TTSceneStepMaster : TTSceneAttacherBase
 {
-	private void Awake()
+
+	//---------------------------------------------------------------
+	protected override void OnUnityAwake()
 	{
-			
+		base.OnUnityAwake();
 	}
 
-	private void Start()
-    {
-        
-    }
+	protected override void OnUnityStart()
+	{
+		base.OnUnityStart();
+		PrivSceneStepLoad();
+	}
+	//--------------------------------------------------------------
+	private void PrivSceneStepLoad()
+	{
+		ProtSceneAttacherLoadAddressablePrefab(c_ScriptDataPrefabName, (bool bSuccess) =>
+		{
+			if (bSuccess)
+			{
+				ProtSceneAttacherLoadAddressablePrefab(c_SoundDataPrefabName, (bool bSuccess) =>
+				{
+					if (bSuccess)
+					{
+						ProtSceneAttacherLoadUIScene(c_UIRootPrefabName, () => {
+							PrivSceneStepFinish();
+						});
+					}
+				});
+			}
+		});
+	}
+
+	private void PrivSceneStepFinish()
+	{
+
+	}
 }

@@ -2,12 +2,9 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class TTSceneAttacherUIDevelop : CSceneAttacherBase
+public class TTSceneAttacherUIDevelop : TTSceneAttacherBase
 {
-	[SerializeField]
-	private string ManagerPrefabPath = "FrontPrefab";
-	[SerializeField]
-	private string ManagerPrefabName = "TTPrefabManager";
+	
 	//---------------------------------------------------------
 	protected override void OnUnityAwake()
 	{
@@ -23,9 +20,20 @@ public class TTSceneAttacherUIDevelop : CSceneAttacherBase
 	//------------------------------------------------------
 	private void PrivSceneAttacherLoad()
 	{
-		ProtSceneAttacherLoadResourcePrefab(ManagerPrefabPath, ManagerPrefabName, () =>
+		ProtSceneAttacherLoadResourcePrefab(c_ManagerPrefabPath, c_ManagerPrefabName, () =>
 		{
-			PrivSceneAttacherLoadFinish();
+			ProtSceneAttacherLoadAddressablePrefab(c_ScriptDataPrefabName, (bool bSuccess) => { 
+				if (bSuccess)
+				{
+					ProtSceneAttacherLoadAddressablePrefab(c_SoundDataPrefabName, (bool bSuccess) =>
+					{
+						if (bSuccess)
+						{
+							PrivSceneAttacherLoadFinish();
+						}
+					});
+				}
+			});
 		});
 	}
 

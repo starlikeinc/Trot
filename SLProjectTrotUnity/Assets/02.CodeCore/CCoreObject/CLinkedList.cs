@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 // 베이직 LinkedList가 이터레이팅중 삭제가 안되는 점을 보완하기 위해 구현되었다.
-// 외부에서는 동일한 MoveNext패턴으로 입출하면 되며 삭제시 List의 Remove가 아닌
+// 외부에서는 동일한 MoveNext패턴으로 입출력하면 되며 삭제시 List의 Remove가 아닌
 // Enumerator 의 Remove를 사용하여 반복문 중에 삭제가 가능하도록 되어 있다. 
 
 public class CLinkedList<TEMPLATE> : LinkedList<TEMPLATE> 

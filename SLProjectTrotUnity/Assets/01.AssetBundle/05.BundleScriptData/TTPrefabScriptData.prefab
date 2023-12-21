@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 6857125363170593912}
   - component: {fileID: 2595595505131068144}
   m_Layer: 0
-  m_Name: TSPrefabScriptData
+  m_Name: TTPrefabScriptData
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
