@@ -10,21 +10,15 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: bbb281ee3bf0b054c82ac2347e9e782c, type: 3}
-  m_Name: TTBundleUIFrame
+  m_Name: TTBundleAudio
   m_EditorClassIdentifier: 
-  m_GroupName: TTBundleUIFrame
+  m_GroupName: TTBundleAudio
   m_Data:
     m_SerializedData: []
-  m_GUID: bf9a22fc0f5db004696825af249f0fbf
+  m_GUID: 19f57a14d120d684d9caab9457f6715f
   m_SerializeEntries:
-  - m_GUID: 2ad2e214f66207b41b219434f552965b
-    m_Address: UIFrameLogin
-    m_ReadOnly: 0
-    m_SerializedLabels:
-    - Main
-    FlaggedDuringContentUpdateRestriction: 0
-  - m_GUID: f49df5e361994644eaf697651b9f7756
-    m_Address: UIFrameLoadingScreen
+  - m_GUID: dc37238ef88e1b34896321d8e6125305
+    m_Address: TTPrefabSoundClip
     m_ReadOnly: 0
     m_SerializedLabels:
     - Main
@@ -33,5 +27,5 @@ MonoBehaviour:
   m_Settings: {fileID: 11400000, guid: 14bdc69b63a9cdb41b9e073210868ecd, type: 2}
   m_SchemaSet:
     m_Schemas:
-    - {fileID: 11400000, guid: 73c68e84e1bc70f48a7fe91649a9b6aa, type: 2}
-    - {fileID: 11400000, guid: 7a16191415a879748ba4b25f9f3f4c94, type: 2}
+    - {fileID: 11400000, guid: 96963bffbdd88f8438728e92cc103c47, type: 2}
+    - {fileID: 11400000, guid: 2f93c0baa210490489e1bf77957e3037, type: 2}

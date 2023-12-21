@@ -30,10 +30,15 @@ public abstract class CManagerSceneLoaderBase : CManagerAddressableBase<CManager
 	private Dictionary<string, SLoadedSceneInfo>	m_dicSceneInstance = new Dictionary<string, SLoadedSceneInfo>();
 	private Queue<SLoadedSceneInfo>					m_queUnloadScene   = new Queue<SLoadedSceneInfo>();
 	//------------------------------------------------------------------------
+	protected override void OnUnityStart()
+	{
+		base.OnUnityStart();
+		StartCoroutine(CoroutineUpdateUnloadScene());
+	}
+
 	protected override void OnUnityUpdate()
 	{
-		base.OnUnityUpdate();
-		CText[] aTest = FindObjectsByType<CText>(FindObjectsSortMode.None);
+		base.OnUnityUpdate();		
 	}
 
 	protected sealed override void OnAddressableLoadScene(string strAddressableName, AsyncOperationHandle pLoadedHandle, SceneInstance _SceneInstance)
@@ -101,7 +106,7 @@ public abstract class CManagerSceneLoaderBase : CManagerAddressableBase<CManager
 
 
 	//-----------------------------------------------------------------------
-	private IEnumerator CoroutineUnloadScene()
+	private IEnumerator CoroutineUpdateUnloadScene()
 	{
 		while(true)
 		{
@@ -117,13 +122,12 @@ public abstract class CManagerSceneLoaderBase : CManagerAddressableBase<CManager
 					{
 						m_bLoading = false;
 					}
-
 				};
-				yield return AsyncHandle;
+				yield return null;
 			}
 			else
 			{
-				yield break;
+				yield return null;
 			}
 		}
 	}

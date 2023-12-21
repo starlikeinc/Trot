@@ -23,27 +23,29 @@ public class TTManagerSceneLoader : CManagerSceneLoaderBase
 	public void DoMgrSceneLoaderGoToLobby(UnityAction delFinish)
 	{
 		PrivMgrSceneLoaderGoToSubScene(ESceneName.TTSceneLobby, delFinish);
-		m_eCurrentScene = ESceneName.TTSceneLobby;
-		ProtSceneLoaderAdditive(m_eCurrentScene.ToString(), (string strLoadedName)=> { 		
-			delFinish?.Invoke();
-		});
 	}
 
 	//---------------------------------------------------------------------------------------------
 	private void PrivMgrSceneLoaderGoToSubScene(ESceneName eSceneName, UnityAction delFinish)
 	{
+		UIManager.Instance.UIShow<UIFrameLoadingScreen>();
 		if (m_eCurrentScene != ESceneName.None)
 		{
 			ProtSceneLoaderAdditiveUnload(m_eCurrentScene.ToString(), (string strLoadedScene) => {
-				PrivMgrSceneLoaderLoadSubScene(m_eCurrentScene, delFinish);
+				PrivMgrSceneLoaderLoadSubScene(eSceneName, delFinish);
 			});
+		}
+		else
+		{
+			PrivMgrSceneLoaderLoadSubScene(eSceneName, delFinish);
 		}
 	}
 
 	private void PrivMgrSceneLoaderLoadSubScene(ESceneName eSceneName, UnityAction delFinish)
 	{
 		m_eCurrentScene = eSceneName;
-		ProtSceneLoaderAdditive(m_eCurrentScene.ToString(), (string strLoadedScene) => { 
+		ProtSceneLoaderAdditive(m_eCurrentScene.ToString(), (string strLoadedScene) => {
+			UIManager.Instance.UIHide<UIFrameLoadingScreen>();
 			delFinish?.Invoke();
 		});
 	}

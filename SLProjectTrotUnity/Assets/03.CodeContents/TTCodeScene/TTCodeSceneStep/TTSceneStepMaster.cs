@@ -22,6 +22,23 @@ public class TTSceneStepMaster : TTSceneAttacherBase
 	//--------------------------------------------------------------
 	private void PrivSceneStepLoad()
 	{
+		ProtSceneAttacherLoadUIScene(c_UIRootPrefabName, () =>
+		{
+			TTManagerSceneLoader.Instance.DoMgrSceneLoaderGoToLobby(() =>
+			{
+				StartCoroutine(CoroutineCheckUILoadFinish());
+			});
+		});
+	}
+
+	private void PrivSceneStepFinish()
+	{
+		UIManager.Instance.UIHide<UIFrameLoadingScreen>();
+	}
+
+	private void PrivSceneStepLoadScriptData()
+	{
+		UIManager.Instance.UIShow<UIFrameLoadingScreen>();
 		ProtSceneAttacherLoadAddressablePrefab(c_ScriptDataPrefabName, (bool bSuccess) =>
 		{
 			if (bSuccess)
@@ -30,17 +47,30 @@ public class TTSceneStepMaster : TTSceneAttacherBase
 				{
 					if (bSuccess)
 					{
-						ProtSceneAttacherLoadUIScene(c_UIRootPrefabName, () => {
-							PrivSceneStepFinish();
-						});
+						//PrivSceneStepFinish();
+						Invoke("PrivSceneStepFinish", 1f);
 					}
 				});
 			}
 		});
 	}
 
-	private void PrivSceneStepFinish()
+	//------------------------------------------------------------------------
+	private IEnumerator CoroutineCheckUILoadFinish()
 	{
+		while(true)
+		{
+			if (UIManager.Instance.IsInitialize == true)
+			{
+				PrivSceneStepLoadScriptData();
+				break;
+			}
+			else
+			{
+				yield return null;
+			}
+		}
 
+		yield break;
 	}
 }
