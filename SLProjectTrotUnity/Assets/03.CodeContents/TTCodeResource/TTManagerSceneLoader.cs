@@ -13,7 +13,7 @@ public class TTManagerSceneLoader : CManagerSceneLoaderBase
 		TTSceneLobby,
 	}
 
-	private ESceneName m_eCurrentScene = ESceneName.None;
+	private ESceneName m_eCurrentScene = ESceneName.None; 
 	//---------------------------------------------------------------------------------------------
 	public void DoMgrSceneLoaderGoToMaster(UnityAction delFinish)
 	{
@@ -23,6 +23,7 @@ public class TTManagerSceneLoader : CManagerSceneLoaderBase
 	public void DoMgrSceneLoaderGoToLobby(UnityAction delFinish)
 	{
 		PrivMgrSceneLoaderGoToSubScene(ESceneName.TTSceneLobby, delFinish);
+
 	}
 
 	//---------------------------------------------------------------------------------------------

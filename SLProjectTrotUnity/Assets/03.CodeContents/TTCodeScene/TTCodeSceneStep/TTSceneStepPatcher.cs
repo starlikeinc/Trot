@@ -15,5 +15,7 @@ public class TTSceneStepPatcher : MonoBehaviour
 	private void HandleStepPatcherFinish()
 	{
 		TTManagerSceneLoader.Instance.DoMgrSceneLoaderGoToMaster(null);
+
+
 	}
 }

@@ -6,5 +6,5 @@ public class TTNetwork : CManagerGameNetworkBase
 {
 	public static new TTNetwork Instance { get { return CManagerGameNetworkBase.Instance as TTNetwork; } }
 	//-------------------------------------------------------------------------------------------------
-	 
+	
 }
