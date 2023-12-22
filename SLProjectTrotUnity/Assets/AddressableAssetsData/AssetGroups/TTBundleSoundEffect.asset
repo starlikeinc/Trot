@@ -10,15 +10,15 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: bbb281ee3bf0b054c82ac2347e9e782c, type: 3}
-  m_Name: TTBundleScriptData
+  m_Name: TTBundleSoundEffect
   m_EditorClassIdentifier: 
-  m_GroupName: TTBundleScriptData
+  m_GroupName: TTBundleSoundEffect
   m_Data:
     m_SerializedData: []
-  m_GUID: 7dc542a98bcbeae4884eba921e1d4835
+  m_GUID: 7c4181ea8da712e4bb4060a4ad84822f
   m_SerializeEntries:
-  - m_GUID: 0758620d89545444892c12ab3a7b3c27
-    m_Address: TTPrefabScriptData
+  - m_GUID: dc37238ef88e1b34896321d8e6125305
+    m_Address: TTPrefabSoundClip
     m_ReadOnly: 0
     m_SerializedLabels:
     - Main
@@ -27,5 +27,5 @@ MonoBehaviour:
   m_Settings: {fileID: 11400000, guid: 14bdc69b63a9cdb41b9e073210868ecd, type: 2}
   m_SchemaSet:
     m_Schemas:
-    - {fileID: 11400000, guid: 119909e2c8fa0ec4d9988ea00c1645a3, type: 2}
-    - {fileID: 11400000, guid: 850f514cc8c645a48aa0d2b9ad755183, type: 2}
+    - {fileID: 11400000, guid: 5fc0e4a5e1c81df4b8a11f915d1a314e, type: 2}
+    - {fileID: 11400000, guid: 6f11a766c017fdd408e85c31346bf5ff, type: 2}

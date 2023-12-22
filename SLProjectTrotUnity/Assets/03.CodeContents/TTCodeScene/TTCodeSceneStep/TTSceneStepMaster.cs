@@ -24,9 +24,10 @@ public class TTSceneStepMaster : TTSceneAttacherBase
 	{
 		ProtSceneAttacherLoadUIScene(c_UIRootPrefabName, () =>
 		{
-			TTManagerSceneLoader.Instance.DoMgrSceneLoaderGoToLobby(() =>
+			TTManagerSceneLoader.Instance.DoMgrSceneLoaderGoToLogin(() =>
 			{
 				StartCoroutine(CoroutineCheckUILoadFinish());
+				UIManager.Instance.UIShow<UIFrameLogin>();
 			});
 		});
 	}

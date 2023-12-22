@@ -11,6 +11,7 @@ public class TTManagerSceneLoader : CManagerSceneLoaderBase
 	{
 		None,		
 		TTSceneLobby,
+		TTSceneLogin,
 	}
 
 	private ESceneName m_eCurrentScene = ESceneName.None; 
@@ -23,13 +24,15 @@ public class TTManagerSceneLoader : CManagerSceneLoaderBase
 	public void DoMgrSceneLoaderGoToLobby(UnityAction delFinish)
 	{
 		PrivMgrSceneLoaderGoToSubScene(ESceneName.TTSceneLobby, delFinish);
-
 	}
+    public void DoMgrSceneLoaderGoToLogin(UnityAction delFinish)
+    {
+        PrivMgrSceneLoaderGoToSubScene(ESceneName.TTSceneLogin, delFinish);
+    }
 
-	//---------------------------------------------------------------------------------------------
-	private void PrivMgrSceneLoaderGoToSubScene(ESceneName eSceneName, UnityAction delFinish)
+    //---------------------------------------------------------------------------------------------
+    private void PrivMgrSceneLoaderGoToSubScene(ESceneName eSceneName, UnityAction delFinish)
 	{
-		UIManager.Instance.UIShow<UIFrameLoadingScreen>();
 		if (m_eCurrentScene != ESceneName.None)
 		{
 			ProtSceneLoaderAdditiveUnload(m_eCurrentScene.ToString(), (string strLoadedScene) => {
@@ -46,7 +49,6 @@ public class TTManagerSceneLoader : CManagerSceneLoaderBase
 	{
 		m_eCurrentScene = eSceneName;
 		ProtSceneLoaderAdditive(m_eCurrentScene.ToString(), (string strLoadedScene) => {
-			UIManager.Instance.UIHide<UIFrameLoadingScreen>();
 			delFinish?.Invoke();
 		});
 	}
