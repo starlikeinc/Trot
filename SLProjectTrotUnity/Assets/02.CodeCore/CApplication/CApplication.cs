@@ -38,7 +38,7 @@ public class CApplication : CManagerTemplateBase<CApplication>
 		Application.runInBackground = true;
 		Input.simulateMouseWithTouches = true; 
 		Input.multiTouchEnabled = true;
-
+		Screen.sleepTimeout = SleepTimeout.NeverSleep;
 		PrivApplicationGUIFont();
 	} 
 
