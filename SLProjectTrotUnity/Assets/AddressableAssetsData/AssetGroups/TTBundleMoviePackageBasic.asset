@@ -1,0 +1,31 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bbb281ee3bf0b054c82ac2347e9e782c, type: 3}
+  m_Name: TTBundleMoviePackageBasic
+  m_EditorClassIdentifier: 
+  m_GroupName: TTBundleMoviePackageBasic
+  m_Data:
+    m_SerializedData: []
+  m_GUID: 14a67f7100fd0b943a278ad126ccc235
+  m_SerializeEntries:
+  - m_GUID: b395a32c6557163429d8606a687b0048
+    m_Address: TTMovieBasic_JJiniya_yeongtak
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Main
+    FlaggedDuringContentUpdateRestriction: 0
+  m_ReadOnly: 0
+  m_Settings: {fileID: 11400000, guid: 14bdc69b63a9cdb41b9e073210868ecd, type: 2}
+  m_SchemaSet:
+    m_Schemas:
+    - {fileID: 11400000, guid: fc9fdb25ea2648a4da89b3a067861e84, type: 2}
+    - {fileID: 11400000, guid: c3ce2905af4db4d4e87c73b11468b729, type: 2}
