@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.12731749, g: 0.13414757, b: 0.1210787, a: 1}
+  m_IndirectSpecularColor: {r: 0.12731713, g: 0.13414736, b: 0.12107852, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -123,6 +123,12 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
+--- !u!1 &58845435 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 4142129449666176464, guid: 77b3b83a1d609ee43bdf92c165167cd7,
+    type: 3}
+  m_PrefabInstance: {fileID: 319762522}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &319762522
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -193,7 +199,11 @@ PrefabInstance:
         type: 3}
       insertIndex: -1
       addedObject: {fileID: 1017435331}
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 4142129449666176464, guid: 77b3b83a1d609ee43bdf92c165167cd7,
+        type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 319762530}
   m_SourcePrefab: {fileID: 100100000, guid: 77b3b83a1d609ee43bdf92c165167cd7, type: 3}
 --- !u!20 &319762523 stripped
 Camera:
@@ -207,6 +217,23 @@ RectTransform:
     type: 3}
   m_PrefabInstance: {fileID: 319762522}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &319762530
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 58845435}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dc42784cf147c0c48a680349fa168899, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_IgnoreReversedGraphics: 1
+  m_BlockingObjects: 0
+  m_BlockingMask:
+    serializedVersion: 2
+    m_Bits: 4294967295
 --- !u!1 &841116525
 GameObject:
   m_ObjectHideFlags: 0
