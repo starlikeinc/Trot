@@ -8,17 +8,26 @@ public abstract class TTStagePlayMovieBase : TTStagePlayBase
 {
 	[SerializeField]
 	private VideoPlayer MoviePlayer;
-
-
+	[SerializeField]
+	private MeshRenderer MeshDrawer;
 
 	private bool m_bMoviePlayerPlaying = false;
 	//-------------------------------------------------------------------
+	protected override void OnUnityAwake()
+	{
+		base.OnUnityAwake();
+		MeshDrawer.sortingLayerID = SortingLayer.NameToID(LayerMask.LayerToName(gameObject.layer));
+		MeshDrawer.sortingOrder = 100;
+		
+	}
+
+
 	protected override void OnStageLoad(uint hLoadID, UnityAction delFinish, params object[] aParams)
 	{
-		base.OnStageLoad(hLoadID, delFinish, aParams);
 		PrivStageMovieReset();
 		PrivStageMovieLoadAsset(hLoadID, ()=> {
 			UIManager.Instance.UIHide<UIFrameLoadingScreen>();
+			delFinish.Invoke();
 		});
 	}
 
@@ -30,16 +39,21 @@ public abstract class TTStagePlayMovieBase : TTStagePlayBase
 
 	protected override void OnStageStart()
 	{
-		if (m_bMoviePlayerPlaying)
+		if (m_bMoviePlayerPlaying && MoviePlayer.clip == null)
 		{
 			//Error!
 			return;
 		}
+		m_bMoviePlayerPlaying = true;
 
 		MoviePlayer.Prepare();
 		MoviePlayer.prepareCompleted += (VideoPlayer pVideoPlayer) =>
 		{
-			PrivStageMovieStartMovie();
+			pVideoPlayer.Play();
+			pVideoPlayer.started += (VideoPlayer pVideoPlayer) =>
+			{
+				OnStageMovieStart(pVideoPlayer.length);
+			};
 		};
 	}
 
@@ -47,9 +61,8 @@ public abstract class TTStagePlayMovieBase : TTStagePlayBase
 	private void PrivStageMovieLoadAsset(uint hLoadID, UnityAction delFinish)
 	{
 		TTManagerResourceLoader.Instance.DoMgrResourceVideoClip("TTMovieBasic_JJiniya_yeongtak", (VideoClip pVideoClip) => {
-
 			MoviePlayer.clip = pVideoClip;
-			
+			delFinish.Invoke();
 		});
 	}
 
@@ -58,12 +71,6 @@ public abstract class TTStagePlayMovieBase : TTStagePlayBase
 		m_bMoviePlayerPlaying = false;
 	}
 
-	private void PrivStageMovieStartMovie()
-	{
-		m_bMoviePlayerPlaying = true;
-		MoviePlayer.Play();
-		OnStageMovieStart(MoviePlayer.length);
-	}
 
 	//------------------------------------------------------------------------
 	protected virtual void OnStageMovieStart(double fLength) { }

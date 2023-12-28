@@ -140,7 +140,7 @@ public abstract class CManagerAddressableBase<TEMPLATE, INSTANCE> : CManagerTemp
         }
         else
 		{
-            if (rLoadResult.LoadedHandle.GetType().IsValueType)
+            if (rLoadResult.LoadedHandle.GetType() == typeof(SceneInstance))
 			{
                 SceneInstance TypeCastScene = (SceneInstance)rLoadResult.LoadedHandle.Result;
                 OnAddressableLoadScene(rLoadResult.AddressableName, rLoadResult.LoadedHandle, TypeCastScene);
