@@ -27,15 +27,18 @@ public class TTSceneStepPatcher : MonoBehaviour
     private void Start()
     {
         mPatchEvent = TTManagerPatcher.Instance.DoPatcherInitialize(false, TTManagerPatcher.DownloadURL);
+
+        mPatchEvent.EventPatchInitComplete += OnPatcherInitComplete;
         mPatchEvent.EventPatchProgress += OnPatcherProgress;
         mPatchEvent.EventPatchFinish += OnPatcherEnd;
         mPatchEvent.EventPatchError += OnPatcherError;
-
-        TTManagerPatcher.Instance.DoPatcherTotalDownloadSize(PrivShowDownloadSize);
     }
 
     //------------------------------------------------------------------------
-
+    private void OnPatcherInitComplete()
+    {
+        TTManagerPatcher.Instance.DoPatcherTotalDownloadSize(PrivShowDownloadSize);
+    }
     private void OnPatcherProgress(string Name, long _downloadedByte, long _totalByte, float Progress, uint _loadCurrent, uint _loadMax)
     {
         ImgProgressBar.fillAmount = Progress;
