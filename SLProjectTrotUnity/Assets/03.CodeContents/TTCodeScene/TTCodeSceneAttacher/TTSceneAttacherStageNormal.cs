@@ -36,7 +36,7 @@ public class TTSceneAttacherStageNormal : TTSceneAttacherBase
 	private void PrivSceneAttacherLoadFinish()
 	{
 		TTManagerStage.Instance.DoStageLoad(0, () => {
-			TTManagerStage.Instance.DoStageStart();
+		//	TTManagerStage.Instance.DoStageStart();
 			Destroy(gameObject);
 		});
 	}

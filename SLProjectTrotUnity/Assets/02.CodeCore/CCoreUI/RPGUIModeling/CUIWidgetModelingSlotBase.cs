@@ -8,7 +8,7 @@ public abstract class CUIWidgetModelingSlotBase : CUIWidgetBase
     //-------------------------------------------------------------
     protected override void OnUIWidgetInitialize(CUIFrameBase pParentFrame)
     {
-        m_pModelingItem = GetComponentsInChildOneDepth<CUIModelingItemBase>();
+        m_pModelingItem = GetComponentInChildOneDepth<CUIModelingItemBase>();
     }
 
    

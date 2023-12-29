@@ -7,6 +7,8 @@ public class TTStagePlayMovieTest : TTStagePlayMovieNormal
 {
 	[SerializeField]
 	private uint StageID = 0;
+	[SerializeField]
+	private float BoardTime = 0;
 
 	//-------------------------------------------------------------------
 	protected override void OnStageLoad(uint hLoadID, UnityAction delFinish, params object[] aParams)
@@ -19,6 +21,11 @@ public class TTStagePlayMovieTest : TTStagePlayMovieNormal
 		{
 			base.OnStageLoad(StageID, delFinish, aParams);
 		}
+	}
+
+	protected override void OnStageStart(params object[] aParams)
+	{
+		base.OnStageStart(BoardTime);
 	}
 
 }

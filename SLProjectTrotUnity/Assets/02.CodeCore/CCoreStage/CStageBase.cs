@@ -39,13 +39,13 @@ abstract public class CStageBase : CMonoBase
 		}
 	}
     //-------------------------------------------------------------
-    internal void InterStageStart()
+    internal void InterStageStart(params object[] aParams)
 	{
 		if (m_eStageStatus != EStageStatus.Ready) return;
 
 		SetMonoActive(true);
 		m_eStageStatus = EStageStatus.Start;
-		OnStageStart();
+		OnStageStart(aParams);
 	}
 
 	internal void InterStageEnd()	// 스테이지가 종료 되었을 경우. 상호작용 불가
@@ -54,10 +54,10 @@ abstract public class CStageBase : CMonoBase
 		OnStageEnd();
 	}
 
-	internal void InterStageReset()	 // 스테이지가 로드 없이 재 시작되어야 할때 
+	internal void InterStageReset(params object[] aParams)	 // 스테이지가 로드 없이 재 시작되어야 할때 
     {
 		m_eStageStatus = EStageStatus.None;
-		OnStageReset();
+		OnStageReset(aParams);
 	}
 
     internal void InterStageExit()	// 스테이지가 언로드 될때. 사용한 리소스등을 반납
@@ -98,8 +98,8 @@ abstract public class CStageBase : CMonoBase
 	protected virtual void OnStageLoaded(uint hLoadID) { }
 	protected virtual void OnStageReLoaded(uint hLoadID) { }
 	protected virtual void OnStageExit()	{ }
-	protected virtual void OnStageReset()	{ }
-	protected virtual void OnStageStart()	{ }
+	protected virtual void OnStageReset(params object[] aParams)	{ }
+	protected virtual void OnStageStart(params object[] aParams)	{ }
 	protected virtual void OnStageEnd()		{ }
 	protected virtual void OnStageRegister()	{ }
 	protected virtual void OnStageUnRegister(){ }

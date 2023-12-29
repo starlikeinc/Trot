@@ -11,8 +11,8 @@ public class TTSceneStepPatcher : MonoBehaviour
     [SerializeField] private CText TxtDownloadSize;
 
     [Header("DownloadProgress")]
-    [SerializeField] private CImage ImgBGProgress;
-    [SerializeField] private CImage ImgProgressBar;
+    [SerializeField] private CImage ImgBGProgress;  
+    [SerializeField] private CImage ImgProgressBar; 
     [SerializeField] private CText TxtDownloadProgress;
 
     [Header("DownloadError")]
@@ -21,6 +21,9 @@ public class TTSceneStepPatcher : MonoBehaviour
 
 
     private CPatcherBase.SPatchEvent mPatchEvent;
+
+
+   
 
     private long mDownloadSize;
     //------------------------------------------------------------------------
@@ -31,11 +34,11 @@ public class TTSceneStepPatcher : MonoBehaviour
         mPatchEvent.EventPatchInitComplete += OnPatcherInitComplete;
         mPatchEvent.EventPatchProgress += OnPatcherProgress;
         mPatchEvent.EventPatchFinish += OnPatcherEnd;
-        mPatchEvent.EventPatchError += OnPatcherError;
-    }
+		mPatchEvent.EventPatchError += OnPatcherError;
+	}
 
-    //------------------------------------------------------------------------
-    private void OnPatcherInitComplete()
+	//------------------------------------------------------------------------
+	private void OnPatcherInitComplete()
     {
         TTManagerPatcher.Instance.DoPatcherTotalDownloadSize(PrivShowDownloadSize);
     }
@@ -53,6 +56,7 @@ public class TTSceneStepPatcher : MonoBehaviour
     }
     private void OnPatcherError(CPatcherBase.EPatchError errorType, string message)
     {
+        
         TxtErrorDescrip.text = $"{errorType}\n{message}";
         ImgBGError.gameObject.SetActive(true);
     }

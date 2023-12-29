@@ -29,10 +29,10 @@ abstract public class CManagerStageBase : CManagerTemplateBase<CManagerStageBase
 	}
     //-----------------------------------------------------------------
 
-    protected void ProtMgrStageStart()  // 스테이지 시작 기능 진입점
+    protected void ProtMgrStageStart(params object[] aParams)  // 스테이지 시작 기능 진입점
     {
         if (m_bStageStart) return;
-		PrivStageStart();
+		PrivStageStart(aParams);
     } 
 
     protected void ProtMgrStageEnd()  // 스테이지 플레이 종료. 메모리가 유지되므로  스테이지가 재 시작 될 수 있다.
@@ -41,9 +41,9 @@ abstract public class CManagerStageBase : CManagerTemplateBase<CManagerStageBase
         PrivStageEnd();
     }
 
-    protected void ProtMgrStageReset() // 스테이지의 모든 내용이 초기화 
+    protected void ProtMgrStageReset(params object[] aParams) // 스테이지의 모든 내용이 초기화 
     {
-		PrivStageReset();
+		PrivStageReset(aParams);
 	}
 
     protected void ProtMgrStageExit() // 스테이지가 메모리에서 언로드
@@ -92,16 +92,16 @@ abstract public class CManagerStageBase : CManagerTemplateBase<CManagerStageBase
         OnMgrStageUnRegister(pStage);
 	}
 
-	private void PrivStageReset()
+	private void PrivStageReset(params object[] aParams)
     {
 		for (int i = 0; i < m_listStageInstance.Count; i++)
         {
-			m_listStageInstance[i].InterStageReset();
+			m_listStageInstance[i].InterStageReset(aParams);
 			OnMgrStageStart(m_listStageInstance[i]);
 		}
     }
 
-	private void PrivStageStart()
+	private void PrivStageStart(params object[] aParams)
     {
         for (int i = 0; i < m_listStageInstance.Count; i++)
         {
@@ -112,7 +112,7 @@ abstract public class CManagerStageBase : CManagerTemplateBase<CManagerStageBase
             else
             {
                 CStageBase pStage = m_listStageInstance[i];
-                pStage.InterStageStart();
+                pStage.InterStageStart(aParams);
 				OnMgrStageStart(pStage);
 			}
         }       

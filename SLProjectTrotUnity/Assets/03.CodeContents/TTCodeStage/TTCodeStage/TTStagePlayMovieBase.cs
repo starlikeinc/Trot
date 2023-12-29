@@ -8,6 +8,7 @@ public abstract class TTStagePlayMovieBase : TTStagePlayBase
 {
 	[SerializeField]
 	private VideoPlayer MoviePlayer;
+
 	[SerializeField]
 	private MeshRenderer MeshDrawer;
 
@@ -17,8 +18,7 @@ public abstract class TTStagePlayMovieBase : TTStagePlayBase
 	{
 		base.OnUnityAwake();
 		MeshDrawer.sortingLayerID = SortingLayer.NameToID(LayerMask.LayerToName(gameObject.layer));
-		MeshDrawer.sortingOrder = 100;
-		
+		MeshDrawer.sortingOrder = 100;		
 	}
 
 
@@ -37,22 +37,34 @@ public abstract class TTStagePlayMovieBase : TTStagePlayBase
 		PrivStageMovieReset();
 	}
 
-	protected override void OnStageStart()
+	protected override void OnStageStart(params object[] aParams)
 	{
 		if (m_bMoviePlayerPlaying && MoviePlayer.clip == null)
 		{
 			//Error!
 			return;
 		}
+
+		float fBoardTime = 0;
+		if (aParams.Length > 0)
+		{
+			fBoardTime = (float)aParams[0];
+		}
+
 		m_bMoviePlayerPlaying = true;
 
+		//-------------------------------------------------------------
 		MoviePlayer.Prepare();
 		MoviePlayer.prepareCompleted += (VideoPlayer pVideoPlayer) =>
 		{
-			pVideoPlayer.Play();
-			pVideoPlayer.started += (VideoPlayer pVideoPlayer) =>
+			pVideoPlayer.time = fBoardTime;
+			pVideoPlayer.seekCompleted += (VideoPlayer pVideoPlayer) =>
 			{
-				OnStageMovieStart(pVideoPlayer.length);
+				pVideoPlayer.Play();
+				pVideoPlayer.started += (VideoPlayer pVideoPlayer) =>
+				{
+					OnStageMovieStart(fBoardTime);
+				};
 			};
 		};
 	}
@@ -73,6 +85,6 @@ public abstract class TTStagePlayMovieBase : TTStagePlayBase
 
 
 	//------------------------------------------------------------------------
-	protected virtual void OnStageMovieStart(double fLength) { }
+	protected virtual void OnStageMovieStart(float fBoardTime) { }
 	protected virtual void OnStageMovieStop() { }
 }

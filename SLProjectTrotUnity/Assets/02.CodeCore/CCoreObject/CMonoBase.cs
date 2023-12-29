@@ -33,7 +33,7 @@ abstract public class CMonoBase : MonoBehaviour
         return strName.Replace("(Clone)", "").Trim();
     }
 
-    public TEMPATE GetComponentsInChildOneDepth<TEMPATE>() where TEMPATE : Component
+    public TEMPATE GetComponentInChildOneDepth<TEMPATE>() where TEMPATE : Component
     {
         TEMPATE pComponent = null;
         int iTotal = transform.childCount;
