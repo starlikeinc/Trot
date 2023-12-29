@@ -9,7 +9,7 @@ public abstract class TTStagePlayBase : CStageBase
 	[SerializeField]
 	private TTSubTitlePlayer SubTitlePlayer = null;
 	
-
+	 
 	//-------------------------------------------------------------------
 	protected override void OnStageLoad(uint hLoadID, UnityAction delFinish, params object[] aParams)
 	{
