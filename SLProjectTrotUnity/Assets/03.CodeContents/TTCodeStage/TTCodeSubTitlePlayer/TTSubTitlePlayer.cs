@@ -26,18 +26,15 @@ public class TTSubTitlePlayer : CMonoBase
 			//Error!
 			return;
 		}
-
-		m_fCurrentBoardTime = fStartBoardTime;
-
 		PrivSubTitlePlayerReset();
-		PrivSubTitleBoardNext();
+		PrivSubTitleBoardNext(fStartBoardTime);
 	}
 
 
 	//------------------------------------------------------------------
-	internal void InterSubTitleNextBoard()
+	internal void InterSubTitleNextBoard(float fEndBoardTime)
 	{
-		PrivSubTitleBoardNext();
+		PrivSubTitleBoardNext(fEndBoardTime);
 	}
 
 
@@ -53,7 +50,7 @@ public class TTSubTitlePlayer : CMonoBase
 		}
 	}
 
-	private void PrivSubTitleBoardNext()
+	private void PrivSubTitleBoardNext(float fBoardTime)
 	{
 		//if (m_iCurrentSubTitle >= m_listSubTitleBoard.Count)
 		//{
@@ -75,5 +72,13 @@ public class TTSubTitlePlayer : CMonoBase
 	private void PrivSubTitleBoardPlay(TTSubTitleBoard pSubTitleBoard)
 	{
 		
+	}
+
+	private TTSubTitleBoard FindSubTitleBoard(float fBoardTime)
+	{
+		TTSubTitleBoard pFindBoard = null;
+
+
+		return pFindBoard;
 	}
 }

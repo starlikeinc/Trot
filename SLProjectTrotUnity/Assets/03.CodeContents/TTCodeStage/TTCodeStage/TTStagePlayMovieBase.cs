@@ -53,7 +53,7 @@ public abstract class TTStagePlayMovieBase : TTStagePlayBase
 
 		m_bMoviePlayerPlaying = true;
 
-		//-------------------------------------------------------------
+		//----------------------------------------------------------------------
 		MoviePlayer.Prepare();
 		MoviePlayer.prepareCompleted += (VideoPlayer pVideoPlayer) =>
 		{

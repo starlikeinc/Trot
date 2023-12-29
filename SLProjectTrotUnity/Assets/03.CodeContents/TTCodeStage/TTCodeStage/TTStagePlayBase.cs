@@ -8,8 +8,7 @@ public abstract class TTStagePlayBase : CStageBase
 {
 	[SerializeField]
 	private TTSubTitlePlayer SubTitlePlayer = null;
-	[SerializeField]
-	private float BoardTime = 0;
+	
 
 	//-------------------------------------------------------------------
 	protected override void OnStageLoad(uint hLoadID, UnityAction delFinish, params object[] aParams)
@@ -21,5 +20,11 @@ public abstract class TTStagePlayBase : CStageBase
 	{
 		base.OnStageReLoaded(hLoadID);
 	}
-	
+
+	protected override void OnStageStart(params object[] aParams)
+	{
+		base.OnStageStart(aParams);
+
+
+	}
 }
