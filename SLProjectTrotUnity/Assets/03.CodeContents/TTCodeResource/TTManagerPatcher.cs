@@ -13,7 +13,6 @@ public class TTManagerPatcher : CManagerPatchAssetBundleBase
 
     private List<string> m_listAssetBundleLabels = new List<string>();
 
-    private long downLoadSize;
     //-------------------------------------------------------------------------
 
     public CPatcherBase.SPatchEvent DoPatcherInitialize(bool bResetEventHandler, string strDownloadURL)
@@ -28,19 +27,7 @@ public class TTManagerPatcher : CManagerPatchAssetBundleBase
 
     public void DoPatcherTotalDownloadSize(UnityAction<long> delFinish)
     {
-        ProtPatchAddressableTotalDowloadSize(m_listAssetBundleLabels, PrivGetDownloadSize);
-        delFinish(PrivByteToMB(downLoadSize));
-    }
-    //-------------------------------------------------------------------------
-
-    private long PrivByteToMB(long byteSize)
-    {
-        return (long)((byteSize / (double)Math.Pow(1024, 2)));
-    }
-
-    private void PrivGetDownloadSize(long size)
-    {
-        downLoadSize = size;
+        ProtPatchAddressableTotalDowloadSize(m_listAssetBundleLabels, delFinish);
     }
     //-------------------------------------------------------------------------
 
