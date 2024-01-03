@@ -31,8 +31,6 @@ public class TTSceneStepPatcher : MonoBehaviour
         m_pPatchEvent = TTManagerPatcher.Instance.DoPatcherInitialize(false, TTManagerPatcher.DownloadURL);
 
         m_pPatchEvent.EventPatchInitComplete += OnPatcherInitComplete;
-        m_pPatchEvent.EventPatchProgress += OnPatcherProgress;
-        m_pPatchEvent.EventPatchFinish += OnPatcherEnd;
         m_pPatchEvent.EventPatchError += OnPatcherError;
     }
 
@@ -54,7 +52,7 @@ public class TTSceneStepPatcher : MonoBehaviour
         ProgressBar.fillAmount = 1;
         ProgressPercent.text = $"( {m_strDownloadSizeMB.PadLeft(4)} / {m_strDownloadSizeMB.PadLeft(4)} )MB  100%";
 
-        TTManagerSceneLoader.Instance.DoMgrSceneLoaderGoToMaster(null);
+        PrivPatcherGoToMaster();
     }
     private void OnPatcherError(CPatcherBase.EPatchError errorType, string message)
     {
@@ -63,6 +61,10 @@ public class TTSceneStepPatcher : MonoBehaviour
     }
 
     //------------------------------------------------------------------------
+    private void PrivPatcherGoToMaster()
+    {
+        TTManagerSceneLoader.Instance.DoMgrSceneLoaderGoToMaster(null);
+    }
     private long PrivPatcherByteToMB(long size)
     {
         return (size / 1048576);
@@ -94,8 +96,19 @@ public class TTSceneStepPatcher : MonoBehaviour
 
     private void PrivPatcherShowRealDownloadSize(long size)
     {
+        if(size <= 0)//다운로드 받을 번들이 없을 시
+        {
+            m_pPatchEvent.EventPatchFinish += PrivPatcherGoToMaster;
+            PrivPatcherStartRealDownload();
+            return;
+        }
+
+        m_pPatchEvent.EventPatchProgress += OnPatcherProgress;
+        m_pPatchEvent.EventPatchFinish += OnPatcherEnd;
+
         m_strDownloadSizeMB = PrivPatcherByteToMB(size).ToString();
         DownloadSize.text = $"( {m_strDownloadSizeMB}MB )";
+
         DownloadStartBG.gameObject.SetActive(true);
     }
     private void PrivPatcherStartRealDownload()
@@ -204,7 +217,7 @@ public class TTSceneStepPatcher : MonoBehaviour
         ProgressBar.fillAmount = 1;
         ProgressPercent.text = $"( {FakeDownloadSizeStr.PadLeft(4)} / {FakeDownloadSizeStr.PadLeft(4)} )MB  100%";
 
-        TTManagerSceneLoader.Instance.DoMgrSceneLoaderGoToMaster(null);
+        PrivPatcherGoToMaster();
     }
 
     #endregion

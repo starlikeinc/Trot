@@ -33,7 +33,7 @@ public class TTManagerPatcher : CManagerPatchAssetBundleBase
 
     protected override void OnPatcherInitComplete()
     {
-
+        m_listAssetBundleLabels.Add(MainLabelName);
     }
 
     protected override void OnPatcherDownloadSize(string strLabelhName, long iSize)
