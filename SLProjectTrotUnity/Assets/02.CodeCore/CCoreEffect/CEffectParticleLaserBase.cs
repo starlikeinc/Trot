@@ -22,8 +22,11 @@ public abstract class CEffectParticleLaserBase : CEffectParticleBase
     protected override void OnEffectUpdate(float fDelta)
     {
         base.OnEffectUpdate(fDelta);
-        PrivEffectParticleLaserUpdate(m_vecDestPosition);
-    }
+        if (m_vecDestPosition != Vector3.zero)
+		{
+			PrivEffectParticleLaserUpdate(m_vecDestPosition);
+		}
+	}
 
     protected override void OnEffectStartDirection(Vector3 vecDirection, float fLength, float fDuration, params object[] aParams)
     {
@@ -43,8 +46,13 @@ public abstract class CEffectParticleLaserBase : CEffectParticleBase
         m_vecDestPosition = vecDestPosition;
     }
 
-    //---------------------------------------------------------------------
-    private void PrivEffectParticleLaserUpdate(Vector3 vecDest)    
+	public void SetEffectLaserLength(float fLength)
+	{
+        ProtEffectParticleLength(fLength);
+    }
+
+	//---------------------------------------------------------------------
+	private void PrivEffectParticleLaserUpdate(Vector3 vecDest)    
     {
         m_vecDestPosition = vecDest;
         Vector3 vecDirection = m_vecDestPosition - transform.position;
@@ -55,6 +63,5 @@ public abstract class CEffectParticleLaserBase : CEffectParticleBase
             HitEffect.transform.position = m_vecDestPosition;
         }
         ProtEffectParticleLength(fLength);
-
     }
 }
