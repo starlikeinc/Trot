@@ -5,10 +5,12 @@ using UnityEngine.Events;
 
 public abstract class CEffectBase : CPrefabTemplateItemBase
 {
-	private  bool m_bActive = false;  public bool IsActive { get { return m_bActive; } }
-    private bool m_bInitialize = false;
-	private  UnityAction m_delEffectFinish = null;
-	
+	[SerializeField]
+	private bool DefaultHide = true;
+
+	private  bool m_bActive = false;						public bool IsActive { get { return m_bActive; } }
+    private  bool m_bInitialize = false;
+	private  UnityAction m_delEffectFinish = null;	
     private Transform m_pTransformOriginParent = null;      public Transform GetEffectParentOrigin() { return m_pTransformOriginParent; }
 
 	private Vector3 m_vecOrigin = Vector3.zero;
@@ -111,18 +113,18 @@ public abstract class CEffectBase : CPrefabTemplateItemBase
         PrivEffectInitialize();
 
         m_bActive = true;
+
 		m_vecOrigin = Vector3.zero;
 		m_vecDest = Vector3.zero;
 		m_vecOffset = Vector3.zero;
 		m_quaRotationOrigin = Quaternion.identity;
-		
-		m_delEffectFinish = null;
 
 		m_fDuration = fDuration;
 		m_fDurationCurrent = 0;
 
 		m_delEffectFinish = delFinish;
 		SetMonoActive(true);
+
 
         if (fLocalScale != 0)
         {
@@ -139,11 +141,13 @@ public abstract class CEffectBase : CPrefabTemplateItemBase
         if (m_bInitialize) return;
         m_bInitialize = true;
 
-        m_vecScaleOrigin = transform.localScale;
+		if (DefaultHide) SetMonoActive(false);
+
+		m_vecScaleOrigin = transform.localScale;
         m_vecOffset = transform.position;
         m_pTransformOriginParent = transform.parent;
         RemoveCloneObjectName(gameObject);
-        SetMonoActive(false);
+       
         OnEffectInitialize();
     }
 
