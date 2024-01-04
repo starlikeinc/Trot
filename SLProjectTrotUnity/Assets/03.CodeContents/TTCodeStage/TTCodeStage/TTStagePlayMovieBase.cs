@@ -83,9 +83,9 @@ public abstract class TTStagePlayMovieBase : TTStagePlayBase
 		m_bMoviePlayerPlaying = false;
 	}
 
-	private void PrivStageMovieStart(float fBoardTime)
+	private void PrivStageMovieStart(float fBoardTimeStart, float fBoardTimeLength)
 	{
-		ProtStagePlaySubTitleStart(fBoardTime);
+		ProtStagePlaySubTitleStart(fBoardTimeStart, fBoardTimeLength);
 		OnStageMovieStart(fBoardTime);
 	}
 

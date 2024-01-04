@@ -53,7 +53,6 @@ public class TTSubTitleBoard : CMonoBase
 		}
 	}
 
-
 	//-------------------------------------------------------
 	private bool CheckSubTitleBoardTimeInside(float fBoardTime)
 	{
@@ -69,7 +68,7 @@ public class TTSubTitleBoard : CMonoBase
 	{
 		bool bOutside = false;
 
-		if (fBoardTime > BoardTimeEnd)
+		if (fBoardTime >= BoardTimeEnd)
 		{
 			bOutside = true;
 		}
@@ -89,10 +88,10 @@ public class TTSubTitleBoard : CMonoBase
 	private void PrivSubTitleBoardTrackStart(float fCurrentTime)
 	{
 		m_bPlayStart = true;
-
+		float fBoardLength = BoardTimeEnd - BoardTimeStart;
 		for (int i = 0; i < m_listSubTitleTrack.Count; i++)
 		{
-			m_listSubTitleTrack[i].InterSubTitleTrackStart();
+			m_listSubTitleTrack[i].InterSubTitleTrackStart(fBoardLength);
 		}
 
 		UpdateSubTitleBoardTrackTime(fCurrentTime);

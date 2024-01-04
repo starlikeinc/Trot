@@ -8,8 +8,8 @@ public class TTSubTitlePlayer : CMonoBase
 	private bool m_bPlayOver = false;				public bool IsPlayOver { get { return m_bPlayOver; } }
 	private bool m_bPlayStart = false;
 
-	private float m_fCurrentBoardTime = 0;
-	private float m_fBoardTimeEnd = 0;
+	private float m_fCurrentPlayTime = 0;
+	private float m_fPlayTimeLength = 0;
 
 	private UnityAction m_delFinish = null;
 	private List<TTSubTitleBoard> m_listSubTitleBoard = new List<TTSubTitleBoard>();
@@ -29,7 +29,7 @@ public class TTSubTitlePlayer : CMonoBase
 	}
 
 	//-------------------------------------------------------------------
-	public void DoSubTitlePlayerStart(float fBoardTimeStart, float fBoardTimeEnd, UnityAction delFinish)
+	public void DoSubTitlePlayerStart(float fBoardTimeStart, float fPlayTimeLength, UnityAction delFinish)
 	{
 		if (m_bPlayOver)
 		{
@@ -38,7 +38,7 @@ public class TTSubTitlePlayer : CMonoBase
 		}
 		m_delFinish = delFinish;
 		PrivSubTitlePlayerReset();
-		PrivSubTitlePlayerStart(fBoardTimeStart, fBoardTimeEnd);
+		PrivSubTitlePlayerStart(fBoardTimeStart, fPlayTimeLength);
 	}
 
 	//------------------------------------------------------------------
@@ -47,8 +47,8 @@ public class TTSubTitlePlayer : CMonoBase
 	//------------------------------------------------------------------
 	private void PrivSubTitlePlayerReset()
 	{
-		m_fCurrentBoardTime = 0;
-		m_fBoardTimeEnd = 0;
+		m_fCurrentPlayTime = 0;
+		m_fPlayTimeLength = 0;
 		
 		for (int i = 0; i < m_listSubTitleBoard.Count; i++)
 		{
@@ -56,26 +56,26 @@ public class TTSubTitlePlayer : CMonoBase
 		}
 	}
 
-	private void PrivSubTitlePlayerStart(float fBoardTimeStart, float fBoardTimeEnd)
+	private void PrivSubTitlePlayerStart(float fPlayTimeStart, float fPlayTimeLength)
 	{
-		m_fCurrentBoardTime = fBoardTimeStart;
-		m_fBoardTimeEnd = fBoardTimeEnd;
+		m_fCurrentPlayTime = fPlayTimeStart;
+		m_fPlayTimeLength = fPlayTimeLength;
 		m_bPlayStart = true;
 
-		UpdateSubTitleBoard(m_fCurrentBoardTime);
+		UpdateSubTitleBoard(m_fCurrentPlayTime);
 	}
 
 	private void UpdateSubTitlePlayer(float fDelta)
 	{
-		m_fCurrentBoardTime += fDelta;
+		m_fCurrentPlayTime += fDelta;
 
-		if (m_fCurrentBoardTime >= m_fBoardTimeEnd)
+		if (m_fCurrentPlayTime >= m_fPlayTimeLength)
 		{
 			PrivSubTitlePlayOver();
 		}
 		else
 		{
-			UpdateSubTitleBoard(m_fCurrentBoardTime);
+			UpdateSubTitleBoard(m_fCurrentPlayTime);
 		}
 	}
 
