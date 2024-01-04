@@ -1,7 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+using UnityEngine.Events;
 public class TTSubTitlePlayer : CMonoBase
 {
 
@@ -10,7 +10,8 @@ public class TTSubTitlePlayer : CMonoBase
 
 	private float m_fCurrentBoardTime = 0;
 	private float m_fBoardTimeEnd = 0;
-	
+
+	private UnityAction m_delFinish = null;
 	private List<TTSubTitleBoard> m_listSubTitleBoard = new List<TTSubTitleBoard>();
 	//------------------------------------------------------------------
 	protected override void OnUnityAwake()
@@ -28,14 +29,14 @@ public class TTSubTitlePlayer : CMonoBase
 	}
 
 	//-------------------------------------------------------------------
-	public void DoSubTitlePlayerStart(float fBoardTimeStart, float fBoardTimeEnd)
+	public void DoSubTitlePlayerStart(float fBoardTimeStart, float fBoardTimeEnd, UnityAction delFinish)
 	{
 		if (m_bPlayOver)
 		{
 			//Error!
 			return;
 		}
-	
+		m_delFinish = delFinish;
 		PrivSubTitlePlayerReset();
 		PrivSubTitlePlayerStart(fBoardTimeStart, fBoardTimeEnd);
 	}
@@ -80,7 +81,10 @@ public class TTSubTitlePlayer : CMonoBase
 
 	private void UpdateSubTitleBoard(float fCurrentTime)
 	{
-
+		for (int i = 0; i < m_listSubTitleBoard.Count; i++)
+		{
+			m_listSubTitleBoard[i].UpdateSubTitleBoard(fCurrentTime);
+		}
 	}
 
 	
@@ -89,6 +93,7 @@ public class TTSubTitlePlayer : CMonoBase
 	{
 		m_bPlayOver = true;
 		m_bPlayStart = false;
+		m_delFinish?.Invoke();
 	}
 
 

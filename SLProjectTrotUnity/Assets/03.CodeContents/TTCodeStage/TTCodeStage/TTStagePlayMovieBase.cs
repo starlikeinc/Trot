@@ -63,7 +63,7 @@ public abstract class TTStagePlayMovieBase : TTStagePlayBase
 				pVideoPlayer.Play();
 				pVideoPlayer.started += (VideoPlayer pVideoPlayer) =>
 				{
-					OnStageMovieStart(fBoardTime);
+					PrivStageMovieStart(fBoardTime);
 				};
 			};
 		};
@@ -83,6 +83,11 @@ public abstract class TTStagePlayMovieBase : TTStagePlayBase
 		m_bMoviePlayerPlaying = false;
 	}
 
+	private void PrivStageMovieStart(float fBoardTime)
+	{
+		ProtStagePlaySubTitleStart(fBoardTime);
+		OnStageMovieStart(fBoardTime);
+	}
 
 	//------------------------------------------------------------------------
 	protected virtual void OnStageMovieStart(float fBoardTime) { }
