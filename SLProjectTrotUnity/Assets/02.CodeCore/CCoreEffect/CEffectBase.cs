@@ -6,7 +6,7 @@ using UnityEngine.Events;
 public abstract class CEffectBase : CPrefabTemplateItemBase
 {
 	[SerializeField]
-	private bool DefaultHide = true;
+	private bool DefaultHide = false;
 
 	private  bool m_bActive = false;						public bool IsActive { get { return m_bActive; } }
     private  bool m_bInitialize = false;
@@ -115,7 +115,7 @@ public abstract class CEffectBase : CPrefabTemplateItemBase
         m_bActive = true;
 
 		m_vecOrigin = Vector3.zero;
-		m_vecDest = Vector3.zero;
+		m_vecDest = Vector3.zero; 
 		m_vecOffset = Vector3.zero;
 		m_quaRotationOrigin = Quaternion.identity;
 

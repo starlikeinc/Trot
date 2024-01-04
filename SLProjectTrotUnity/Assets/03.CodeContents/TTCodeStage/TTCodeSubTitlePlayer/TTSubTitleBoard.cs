@@ -5,7 +5,7 @@ using UnityEngine;
 public class TTSubTitleBoard : CMonoBase
 {
 	[SerializeField]
-	private float BoardTimeStart = 0.0f;
+	private float BoardTimeStart = 0.0f;		
 	[SerializeField]
 	private float BoardTimeEnd = 0.0f;
 
@@ -27,7 +27,16 @@ public class TTSubTitleBoard : CMonoBase
 		m_bPlayStart = true;
 	}
 
-
+	//-------------------------------------------------------
+	public bool CheckBoardTimeInside(float fBoardTime)
+	{
+		bool bInside = false;
+		if (fBoardTime >= BoardTimeStart && fBoardTime < BoardTimeEnd)
+		{
+			bInside = true;
+		}
+		return bInside;
+	}
 	//---------------------------------------------------------
 
 }

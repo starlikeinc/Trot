@@ -97,8 +97,9 @@ public abstract class CEffectParticleBase : CEffectBase
             if (pParticleRenderer.renderMode == ParticleSystemRenderMode.Stretch)
             {
                 float fSize = pParticleSystem.main.startSizeYMultiplier;
-                pParticleRenderer.lengthScale =  fLength / fSize;      
+                pParticleRenderer.lengthScale =  fLength * fSize;      
             }            
         }
     }
 }
+ 

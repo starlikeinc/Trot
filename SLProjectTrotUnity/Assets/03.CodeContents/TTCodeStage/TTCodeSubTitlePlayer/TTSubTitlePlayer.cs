@@ -5,11 +5,12 @@ using UnityEngine;
 public class TTSubTitlePlayer : CMonoBase
 {
 
-	private float m_fCurrentBoardTime = 0;
-
 	private bool m_bPlayOver = false;				public bool IsPlayOver { get { return m_bPlayOver; } }
-	private TTSubTitleBoard m_pCurrentSubTitle = null;
+	private bool m_bPlayStart = false;
 
+	private float m_fCurrentBoardTime = 0;
+	private float m_fBoardTimeEnd = 0;
+	
 	private List<TTSubTitleBoard> m_listSubTitleBoard = new List<TTSubTitleBoard>();
 	//------------------------------------------------------------------
 	protected override void OnUnityAwake()
@@ -18,67 +19,77 @@ public class TTSubTitlePlayer : CMonoBase
 		GetComponentsInChildOneDepth(m_listSubTitleBoard);
 	}
 
+	private void FixedUpdate()
+	{
+		if (m_bPlayStart)
+		{
+			UpdateSubTitlePlayer(Time.fixedDeltaTime);
+		}
+	}
+
 	//-------------------------------------------------------------------
-	public void DoSubTitlePlayerStart(float fStartBoardTime)
+	public void DoSubTitlePlayerStart(float fBoardTimeStart, float fBoardTimeEnd)
 	{
 		if (m_bPlayOver)
 		{
 			//Error!
 			return;
 		}
+	
 		PrivSubTitlePlayerReset();
-		PrivSubTitleBoardNext(fStartBoardTime);
+		PrivSubTitlePlayerStart(fBoardTimeStart, fBoardTimeEnd);
 	}
-
 
 	//------------------------------------------------------------------
-	internal void InterSubTitleNextBoard(float fEndBoardTime)
-	{
-		PrivSubTitleBoardNext(fEndBoardTime);
-	}
-
+	
 
 	//------------------------------------------------------------------
 	private void PrivSubTitlePlayerReset()
 	{
-		m_fCurrentBoardTime = 0;		
-		m_pCurrentSubTitle = null;
-
+		m_fCurrentBoardTime = 0;
+		m_fBoardTimeEnd = 0;
+		
 		for (int i = 0; i < m_listSubTitleBoard.Count; i++)
 		{
 			m_listSubTitleBoard[i].DoSubTitleBoardReset(this);
 		}
 	}
 
-	private void PrivSubTitleBoardNext(float fBoardTime)
+	private void PrivSubTitlePlayerStart(float fBoardTimeStart, float fBoardTimeEnd)
 	{
-		//if (m_iCurrentSubTitle >= m_listSubTitleBoard.Count)
-		//{
-		//	PrivSubTitlePlayOver();
-		//}
-		//else
-		//{
-		//	TTSubTitleBoard pSubTitleBoard = m_listSubTitleBoard[m_iCurrentSubTitle];
-		//	m_pCurrentSubTitle = pSubTitleBoard;
-		//	PrivSubTitleBoardPlay(pSubTitleBoard);
-		//}
+		m_fCurrentBoardTime = fBoardTimeStart;
+		m_fBoardTimeEnd = fBoardTimeEnd;
+		m_bPlayStart = true;
+
+		UpdateSubTitleBoard(m_fCurrentBoardTime);
 	}
+
+	private void UpdateSubTitlePlayer(float fDelta)
+	{
+		m_fCurrentBoardTime += fDelta;
+
+		if (m_fCurrentBoardTime >= m_fBoardTimeEnd)
+		{
+			PrivSubTitlePlayOver();
+		}
+		else
+		{
+			UpdateSubTitleBoard(m_fCurrentBoardTime);
+		}
+	}
+
+	private void UpdateSubTitleBoard(float fCurrentTime)
+	{
+
+	}
+
+	
 
 	private void PrivSubTitlePlayOver()
 	{
 		m_bPlayOver = true;
+		m_bPlayStart = false;
 	}
 
-	private void PrivSubTitleBoardPlay(TTSubTitleBoard pSubTitleBoard)
-	{
-		
-	}
 
-	private TTSubTitleBoard FindSubTitleBoard(float fBoardTime)
-	{
-		TTSubTitleBoard pFindBoard = null;
-
-
-		return pFindBoard;
-	}
 }

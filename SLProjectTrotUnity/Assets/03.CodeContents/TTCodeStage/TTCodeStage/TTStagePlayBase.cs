@@ -24,7 +24,11 @@ public abstract class TTStagePlayBase : CStageBase
 	protected override void OnStageStart(params object[] aParams)
 	{
 		base.OnStageStart(aParams);
+	}
 
-
+	//------------------------------------------------------------------
+	protected void ProtStagePlaySubTitleStart(float fBoardTime)
+	{
+		SubTitlePlayer.DoSubTitlePlayerStart(fBoardTime);
 	}
 }

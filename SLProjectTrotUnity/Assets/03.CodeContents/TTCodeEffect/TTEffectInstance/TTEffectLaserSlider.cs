@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class TTEffectLaserSliderBody : CEffectParticleLaserBase
+public class TTEffectLaserSlider : CEffectParticleLaserBase
 {
 	[SerializeField]
 	private float SliderLength = 10;
