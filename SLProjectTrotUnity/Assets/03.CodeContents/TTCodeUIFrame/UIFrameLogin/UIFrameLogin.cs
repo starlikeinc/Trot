@@ -4,8 +4,6 @@ using UnityEngine;
 
 public class UIFrameLogin : UIFrameTTBase
 {
-    [SerializeField]
-    private CButton BtnLogin;
 
     //----------------------------------------------------------------
     public void HandleOnClickButtonLogin()
@@ -13,6 +11,7 @@ public class UIFrameLogin : UIFrameTTBase
         TTManagerSceneLoader.Instance.DoMgrSceneLoaderGoToLobby(() =>
         {
             UIManager.Instance.UIHide<UIFrameLogin>();
+            UIManager.Instance.UIShow<UIFrameLobby>();
         });
     }
 
