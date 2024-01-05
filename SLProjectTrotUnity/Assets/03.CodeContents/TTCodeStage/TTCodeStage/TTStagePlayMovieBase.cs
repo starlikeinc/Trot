@@ -45,10 +45,10 @@ public abstract class TTStagePlayMovieBase : TTStagePlayBase
 			return;
 		}
 
-		float fBoardTime = 0;
+		float fBoardTimeStart = 0;
 		if (aParams.Length > 0)
 		{
-			fBoardTime = (float)aParams[0];
+			fBoardTimeStart = (float)aParams[0];
 		}
 
 		m_bMoviePlayerPlaying = true;
@@ -57,13 +57,13 @@ public abstract class TTStagePlayMovieBase : TTStagePlayBase
 		MoviePlayer.Prepare();
 		MoviePlayer.prepareCompleted += (VideoPlayer pVideoPlayer) =>
 		{
-			pVideoPlayer.time = fBoardTime;
+			pVideoPlayer.time = fBoardTimeStart;
 			pVideoPlayer.seekCompleted += (VideoPlayer pVideoPlayer) =>
 			{
 				pVideoPlayer.Play();
 				pVideoPlayer.started += (VideoPlayer pVideoPlayer) =>
 				{
-					PrivStageMovieStart(fBoardTime);
+					PrivStageMovieStart(fBoardTimeStart, MoviePlayer.clip.length);
 				};
 			};
 		};
@@ -83,10 +83,10 @@ public abstract class TTStagePlayMovieBase : TTStagePlayBase
 		m_bMoviePlayerPlaying = false;
 	}
 
-	private void PrivStageMovieStart(float fBoardTimeStart, float fBoardTimeLength)
+	private void PrivStageMovieStart(float fBoardTimeStart, double fBoardTimeLength)
 	{
 		ProtStagePlaySubTitleStart(fBoardTimeStart, fBoardTimeLength);
-		OnStageMovieStart(fBoardTime);
+		OnStageMovieStart(fBoardTimeStart);
 	}
 
 	//------------------------------------------------------------------------

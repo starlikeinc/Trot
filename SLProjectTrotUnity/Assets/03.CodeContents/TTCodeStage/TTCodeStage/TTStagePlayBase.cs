@@ -27,9 +27,9 @@ public abstract class TTStagePlayBase : CStageBase
 	}
 
 	//------------------------------------------------------------------
-	protected void ProtStagePlaySubTitleStart(float fBoardTimeStart, float fBoardTimeLength)
+	protected void ProtStagePlaySubTitleStart(float fBoardTimeStart, double fBoardTimeLength)
 	{
-		SubTitlePlayer.DoSubTitlePlayerStart(fBoardTimeStart, fBoardTimeEnd, ()=> {
+		SubTitlePlayer.DoSubTitlePlayerStart(fBoardTimeStart, fBoardTimeLength, ()=> {
 
 			OnStagePlaySubTitleEnd();
 		});

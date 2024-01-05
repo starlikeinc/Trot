@@ -9,7 +9,7 @@ public class TTSubTitlePlayer : CMonoBase
 	private bool m_bPlayStart = false;
 
 	private float m_fCurrentPlayTime = 0;
-	private float m_fPlayTimeLength = 0;
+	private double m_fPlayTimeLength = 0;
 
 	private UnityAction m_delFinish = null;
 	private List<TTSubTitleBoard> m_listSubTitleBoard = new List<TTSubTitleBoard>();
@@ -29,7 +29,7 @@ public class TTSubTitlePlayer : CMonoBase
 	}
 
 	//-------------------------------------------------------------------
-	public void DoSubTitlePlayerStart(float fBoardTimeStart, float fPlayTimeLength, UnityAction delFinish)
+	public void DoSubTitlePlayerStart(float fBoardTimeStart, double fPlayTimeLength, UnityAction delFinish)
 	{
 		if (m_bPlayOver)
 		{
@@ -56,7 +56,7 @@ public class TTSubTitlePlayer : CMonoBase
 		}
 	}
 
-	private void PrivSubTitlePlayerStart(float fPlayTimeStart, float fPlayTimeLength)
+	private void PrivSubTitlePlayerStart(float fPlayTimeStart, double fPlayTimeLength)
 	{
 		m_fCurrentPlayTime = fPlayTimeStart;
 		m_fPlayTimeLength = fPlayTimeLength;
