@@ -62,6 +62,11 @@ public class TTSubTitlePlayer : CMonoBase
 		m_fPlayTimeLength = fPlayTimeLength;
 		m_bPlayStart = true;
 
+		for (int i = 0; i < m_listSubTitleBoard.Count; i++)
+		{
+			m_listSubTitleBoard[i].DoSubTitleBoardPlay();
+		}
+
 		UpdateSubTitleBoard(m_fCurrentPlayTime);
 	}
 

@@ -10,22 +10,31 @@ public class TTSubTitleBoard : CMonoBase
 	private float BoardTimeEnd = 0.0f;
 
 	private bool m_bPlayStart = false;
+	private bool m_bPlayUpdate = false;
 	private bool m_bPlayOver = false; public bool IsPlayOver { get { return m_bPlayOver; } }
 	private float m_fCurrentTrackTime = 0;
 
 	private TTSubTitlePlayer m_pOwnerPlayer = null;
 	private List<TTSubTitleTrackBase> m_listSubTitleTrack = new List<TTSubTitleTrackBase>();
+	//------------------------------------------------------------
+	protected override void OnUnityAwake()
+	{
+		base.OnUnityAwake();
+		GetComponentsInChildOneDepth(m_listSubTitleTrack);
+	}
+
 	//----------------------------------------------------------
 	public void DoSubTitleBoardReset(TTSubTitlePlayer pSubTitlePlayer)
 	{
 		m_pOwnerPlayer = pSubTitlePlayer;
 		m_bPlayOver = false;
 		m_bPlayStart = false;
+		m_bPlayUpdate = false;
 	}
 
 	public void DoSubTitleBoardPlay()
 	{
-		m_bPlayStart = true;
+		m_bPlayUpdate = true;
 	}
 
 	//--------------------------------------------------------
@@ -33,6 +42,15 @@ public class TTSubTitleBoard : CMonoBase
 	{
 		if (m_bPlayOver) return;
 
+		if (m_bPlayUpdate)
+		{
+			UpdateSubTitleBoardTrack(fCurrentTime);
+		}
+	}
+
+	//-------------------------------------------------------
+	private void UpdateSubTitleBoardTrack(float fCurrentTime)
+	{
 		if (m_bPlayStart)
 		{
 			if (CheckSubTitleBoardTimeOutside(fCurrentTime))
@@ -53,7 +71,7 @@ public class TTSubTitleBoard : CMonoBase
 		}
 	}
 
-	//-------------------------------------------------------
+
 	private bool CheckSubTitleBoardTimeInside(float fBoardTime)
 	{
 		bool bInside = false;
@@ -100,6 +118,7 @@ public class TTSubTitleBoard : CMonoBase
 	private void PrivSubTitleBoardTrackEnd()
 	{
 		m_bPlayOver = true;
+		m_bPlayUpdate = false;
 		for (int i = 0; i < m_listSubTitleTrack.Count; i++)
 		{
 			m_listSubTitleTrack[i].InterSubTitleTrackEnd();

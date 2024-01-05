@@ -202,7 +202,7 @@ MonoBehaviour:
           z: 0
           w: 1
     - Position:
-        x: 8
+        x: 14
         y: 0
         z: 0
       TangentIn:
@@ -223,65 +223,65 @@ MonoBehaviour:
     - Mode: 3
       Tension: 0.5
       m_DistanceToInterpolation:
-      - Distance: -1
-        T: -1
-      - Distance: 0.055762846
+      - Distance: 0
+        T: 0
+      - Distance: 0.04879249
         T: 0.03448276
-      - Distance: 0.2178031
+      - Distance: 0.19057772
         T: 0.06896552
-      - Distance: 0.47824842
+      - Distance: 0.41846734
         T: 0.10344828
-      - Distance: 0.8292263
+      - Distance: 0.72557294
         T: 0.13793103
-      - Distance: 1.2628645
+      - Distance: 1.1050062
         T: 0.1724138
-      - Distance: 1.7712904
+      - Distance: 1.549879
         T: 0.20689656
-      - Distance: 2.3466315
+      - Distance: 2.0533023
         T: 0.2413793
-      - Distance: 2.981016
+      - Distance: 2.6083887
         T: 0.27586207
-      - Distance: 3.6665707
+      - Distance: 3.208249
         T: 0.31034482
-      - Distance: 4.3954244
+      - Distance: 3.845996
         T: 0.3448276
-      - Distance: 5.159703
+      - Distance: 4.51474
         T: 0.37931034
-      - Distance: 5.951536
+      - Distance: 5.207594
         T: 0.41379312
-      - Distance: 6.763049
+      - Distance: 5.917668
         T: 0.44827586
-      - Distance: 7.5863705
+      - Distance: 6.638074
         T: 0.4827586
-      - Distance: 8.41363
+      - Distance: 7.361925
         T: 0.51724136
-      - Distance: 9.236951
+      - Distance: 8.082333
         T: 0.55172414
-      - Distance: 10.048465
+      - Distance: 8.792407
         T: 0.5862069
-      - Distance: 10.840296
+      - Distance: 9.485258
         T: 0.62068963
-      - Distance: 11.604576
+      - Distance: 10.154004
         T: 0.6551724
-      - Distance: 12.333429
+      - Distance: 10.79175
         T: 0.6896552
-      - Distance: 13.018983
+      - Distance: 11.39161
         T: 0.7241379
-      - Distance: 13.653368
+      - Distance: 11.946697
         T: 0.7586207
-      - Distance: 14.22871
+      - Distance: 12.450121
         T: 0.79310346
-      - Distance: 14.737137
+      - Distance: 12.894995
         T: 0.82758623
-      - Distance: 15.170773
+      - Distance: 13.274426
         T: 0.86206895
-      - Distance: 15.521751
+      - Distance: 13.581533
         T: 0.8965517
-      - Distance: 15.782196
+      - Distance: 13.809422
         T: 0.9310345
-      - Distance: 15.944238
+      - Distance: 13.951208
         T: 0.9655172
-      - Distance: 16
+      - Distance: 14
         T: 1
     - Mode: 3
       Tension: 0.5
@@ -357,6 +357,85 @@ MonoBehaviour:
       m_Data: []
   m_Knots:
     m_KnotsLink: []
+--- !u!1 &67592782
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 67592783}
+  - component: {fileID: 67592784}
+  m_Layer: 10
+  m_Name: TweenSection_1
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &67592783
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 67592782}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1017840117}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &67592784
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 67592782}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f5f68aa513b9fa340a6bee6b0ce26457, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  animationCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
+    - serializedVersion: 3
+      time: 1
+      value: 1
+      inSlope: 2
+      outSlope: 2
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  easeType: 0
+  loopStyle: 0
+  delay: 0
+  duration: 1
+  ignoreTimeScale: 1
+  EnableStart: 0
+  onFinished:
+    m_PersistentCalls:
+      m_Calls: []
+  from: 0
+  to: 0
 --- !u!1 &119201536
 GameObject:
   m_ObjectHideFlags: 0
@@ -640,7 +719,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   BoardTimeStart: 0
-  BoardTimeEnd: 10
+  BoardTimeEnd: 30
+--- !u!1 &749010939 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1437117219337858765, guid: a40f8fb5372a1064488c3b1dd62e376f,
+    type: 3}
+  m_PrefabInstance: {fileID: 1930193564}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &785536577
 GameObject:
   m_ObjectHideFlags: 0
@@ -686,6 +771,85 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 80a2a0341bd1b554b9ebb9137ffad4d8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!1 &970716578
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 970716579}
+  - component: {fileID: 970716580}
+  m_Layer: 10
+  m_Name: TweenSection_2
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &970716579
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 970716578}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1017840117}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &970716580
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 970716578}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f5f68aa513b9fa340a6bee6b0ce26457, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  animationCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 1
+      outSlope: 1
+      tangentMode: 34
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
+    - serializedVersion: 3
+      time: 1
+      value: 1
+      inSlope: 1
+      outSlope: 1
+      tangentMode: 34
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  easeType: 0
+  loopStyle: 0
+  delay: 0
+  duration: 1
+  ignoreTimeScale: 1
+  EnableStart: 0
+  onFinished:
+    m_PersistentCalls:
+      m_Calls: []
+  from: 0
+  to: 0
 --- !u!1 &1017840116
 GameObject:
   m_ObjectHideFlags: 0
@@ -716,6 +880,8 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
+  - {fileID: 67592783}
+  - {fileID: 970716579}
   - {fileID: 54955465}
   - {fileID: 629795585}
   m_Father: {fileID: 689791237}
@@ -729,10 +895,16 @@ MonoBehaviour:
   m_GameObject: {fileID: 1017840116}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: da19c9574df369b4b8d67c0770c64ccd, type: 3}
+  m_Script: {fileID: 11500000, guid: fe072ce8de15a6946855ebe05ee16e6c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   SplineTrack: {fileID: 54955466}
+  SplineSection:
+  - TimeLength: 10
+    Duration: 15
+    TweenValue: {fileID: 67592784}
+    TimeStart: 0
+  EffectThumb: {fileID: 749010939}
 --- !u!1001 &1319686162
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1202,7 +1374,7 @@ PrefabInstance:
     - target: {fileID: 4461878966828822665, guid: a40f8fb5372a1064488c3b1dd62e376f,
         type: 3}
       propertyPath: m_LocalRotation.w
-      value: 0.7071068
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4461878966828822665, guid: a40f8fb5372a1064488c3b1dd62e376f,
         type: 3}
@@ -1212,7 +1384,7 @@ PrefabInstance:
     - target: {fileID: 4461878966828822665, guid: a40f8fb5372a1064488c3b1dd62e376f,
         type: 3}
       propertyPath: m_LocalRotation.y
-      value: -0.7071068
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4461878966828822665, guid: a40f8fb5372a1064488c3b1dd62e376f,
         type: 3}
@@ -1227,7 +1399,7 @@ PrefabInstance:
     - target: {fileID: 4461878966828822665, guid: a40f8fb5372a1064488c3b1dd62e376f,
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.y
-      value: -90
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4461878966828822665, guid: a40f8fb5372a1064488c3b1dd62e376f,
         type: 3}
