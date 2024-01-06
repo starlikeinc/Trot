@@ -9,11 +9,13 @@ public abstract class TTSubTitleTrackSplineBase : TTSubTitleTrackBase
 	[System.Serializable]
 	public class SSplineSection
 	{
-		public float TimeLength;
-		public float Duration;
-		public uTweenValue TweenValue;
+		public float TrackLength;
+		public float PlayDuration;
+		public AnimationCurve MoveCurve;
 		[HideInInspector]
 		public float TimeStart;
+		[HideInInspector]
+		public float LengthStart;
 	}
 
 	[SerializeField]
@@ -26,11 +28,15 @@ public abstract class TTSubTitleTrackSplineBase : TTSubTitleTrackBase
 	//----------------------------------------------------------------------------
 	protected override void OnUnityAwake()
 	{
-		float fPrevValue = 0;
+		float fPrevTime = 0;
+		float fPrevLength = 0;
 		for (int i = 0; i < SplineSection.Count; i++)
 		{
-			SplineSection[i].TimeStart = fPrevValue;
-			fPrevValue = SplineSection[i].TimeLength;
+			SplineSection[i].TimeStart = fPrevTime;
+			SplineSection[i].LengthStart = fPrevLength;
+
+			fPrevTime = SplineSection[i].PlayDuration;
+			fPrevLength = SplineSection[i].TrackLength;
 		}
 	}
 
@@ -52,34 +58,35 @@ public abstract class TTSubTitleTrackSplineBase : TTSubTitleTrackBase
 	//----------------------------------------------------------------------------
 	private void PrivTrackSplineRefresh(SSplineSection pSplineSection, float fTrackTime)
 	{
-		if (fTrackTime >= 14f)
+		if (fTrackTime >= 10f)
 		{
-			int Temp = 0;
-		}
+			 
+		}	
 
-		float fSectionTime = fTrackTime - pSplineSection.TimeStart;
-		pSplineSection.TweenValue.from = pSplineSection.TimeStart;
-		pSplineSection.TweenValue.to = pSplineSection.TimeStart + pSplineSection.TimeLength;
-		pSplineSection.TweenValue.duration = pSplineSection.Duration;
+		float fTrackSplineRate = pSplineSection.TrackLength / m_fTrackLength; // 이번 섹션에서 진행할 스플라인의 비율 
+		float fSectionTimeRate = (fTrackTime - pSplineSection.TimeStart) / pSplineSection.PlayDuration;
+		float fCurveRate = pSplineSection.MoveCurve.Evaluate(fSectionTimeRate);
+		float fSplineLength = fCurveRate * fTrackSplineRate + (pSplineSection.LengthStart / m_fTrackLength); 
 
-		pSplineSection.TweenValue.SampleFromTime(fSectionTime, false);
-		float fTrackPositionRate = pSplineSection.TweenValue.value / m_fTrackLength;
-		Vector3 vecPosition = SplineTrack.EvaluatePosition(fTrackPositionRate);
-
-		OnSubTitleTrackSplinePosition(vecPosition);
+		Vector3 vecSplinePosition = SplineTrack.EvaluatePosition(fSplineLength);
+		OnSubTitleTrackSplinePosition(vecSplinePosition);
 	}
 
 	private SSplineSection FindTrackSplineSection(float fTrackTime)
 	{
 		SSplineSection pFindSection = null;
+
+		float fPrevValue = 0;
 		for (int i = 0; i < SplineSection.Count; i++)
 		{
 			SSplineSection pSection = SplineSection[i];
-			if (fTrackTime >= pSection.TimeStart && fTrackTime < pSection.TimeLength)
+			if (fTrackTime >= pSection.TimeStart && fTrackTime < (fPrevValue + pSection.PlayDuration))
 			{
 				pFindSection = pSection;
 				break;
 			}
+
+			fPrevValue = pSection.PlayDuration;
 		}
 		return pFindSection;
 	}
