@@ -20,9 +20,10 @@ public class TTSubTitleTrackGuideSlider : TTSubTitleTrackSplineBase
 		EffectThumb.SetActive(true);
 	}
 
-	protected override void OnSubTitleTrackSplinePosition(Vector3 vecPosition)
+	protected override void OnSubTitleTrackSplinePositionAndRotation(Vector3 vecPosition, Quaternion rQuat)
 	{
-		base.OnSubTitleTrackSplinePosition(vecPosition);
+		base.OnSubTitleTrackSplinePositionAndRotation(vecPosition, rQuat);
 		EffectThumb.transform.position = vecPosition;
+		EffectThumb.transform.rotation = rQuat;
 	}
 }

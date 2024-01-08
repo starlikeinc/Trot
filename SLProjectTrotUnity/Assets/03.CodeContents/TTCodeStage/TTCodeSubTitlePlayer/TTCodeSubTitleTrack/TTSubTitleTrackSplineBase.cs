@@ -50,6 +50,8 @@ public abstract class TTSubTitleTrackSplineBase : TTSubTitleTrackBase
 	//-----------------------------------------------------------------------------
 	protected sealed override void OnSubTitleTrackUpdate(float fTrackTime, float fTrackDelta)
 	{
+	//	fTrackTime = 10.1f;
+
 		SSplineSection pSection = FindTrackSplineSection(fTrackTime);
 		if (pSection != null)
 		{
@@ -61,21 +63,17 @@ public abstract class TTSubTitleTrackSplineBase : TTSubTitleTrackBase
 	//----------------------------------------------------------------------------
 	private void PrivTrackSplineRefresh(SSplineSection pSplineSection, float fTrackTime, float fTrackDelta)
 	{
-		if (fTrackTime >= 10f)
-		{
-			 
-		}
-	//	fTrackTime = 5f;
-
-		float fSplineRateStartLength = pSplineSection.TrackPrevLength * m_fSplinePerSecond;
+		float fSplineRateStartLength = pSplineSection.TrackPrevLength / m_fSplineLength;
 		float fTrackPerSecond = pSplineSection.TrackLength / pSplineSection.TrackDuration;
 		float fTrackLengthRate = (fTrackTime - pSplineSection.TrackPrevDuration) / pSplineSection.TrackDuration;
 		float fCurveValue = pSplineSection.TrackCurve.Evaluate(fTrackLengthRate);
 		float fTrackPosition = fCurveValue * fTrackPerSecond * pSplineSection.TrackDuration;
 		float fSplineRate =  (fTrackPosition / m_fSplineLength) + fSplineRateStartLength;
 
+		
 		Vector3 vecSplinePosition = SplineTrack.EvaluatePosition(fSplineRate);
-		OnSubTitleTrackSplinePosition(vecSplinePosition);
+		Quaternion rQuat = ExtractTrackSplineRotation(fSplineRate);
+		OnSubTitleTrackSplinePositionAndRotation(vecSplinePosition, rQuat);
 	}
 
 	private SSplineSection FindTrackSplineSection(float fTrackTime)
@@ -92,6 +90,17 @@ public abstract class TTSubTitleTrackSplineBase : TTSubTitleTrackBase
 		}
 		return pFindSection;
 	}
+	//-----------------------------------------------------------------------------
+	private Quaternion ExtractTrackSplineRotation(float fSplineRate)
+	{
+		Quaternion rQuat = Quaternion.identity;
+		Vector3 vecForward = Vector3.Normalize(SplineTrack.EvaluateTangent(fSplineRate));
+		Vector3 vecUp = SplineTrack.EvaluateUpVector(fSplineRate);
+		rQuat = Quaternion.LookRotation(vecForward, vecUp);
+
+		return rQuat;
+	}
+
 	//----------------------------------------------------------------------------
-	protected virtual void OnSubTitleTrackSplinePosition(Vector3 vecPosition) { }
+	protected virtual void OnSubTitleTrackSplinePositionAndRotation(Vector3 vecPosition, Quaternion rQuat) { }
 }

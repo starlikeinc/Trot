@@ -25,6 +25,7 @@ public class TTStagePlayMovieTest : TTStagePlayMovieNormal
 
 	protected override void OnStageStart(params object[] aParams)
 	{
+	//	BoardTime = 10f;
 		base.OnStageStart(BoardTime);
 	}
 
