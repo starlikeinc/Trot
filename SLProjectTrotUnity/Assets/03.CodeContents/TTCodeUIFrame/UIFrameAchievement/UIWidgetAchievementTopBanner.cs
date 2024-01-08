@@ -4,5 +4,5 @@ using UnityEngine;
 
 public class UIWidgetAchievementTopBanner : UIWidgetTTBase
 {
-    public void HandleAchievButtonReturn() { }
+    public void HandleButtonAchievButtonReturn() { }
 }

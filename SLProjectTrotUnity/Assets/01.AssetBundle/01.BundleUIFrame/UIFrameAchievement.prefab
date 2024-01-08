@@ -1271,7 +1271,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 4727013281770357764}
         m_TargetAssemblyTypeName: UIWidgetAchievementTopBanner, TTCodeContents
-        m_MethodName: HandleAchievButtonReturn
+        m_MethodName: HandleButtonAchievButtonReturn
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}

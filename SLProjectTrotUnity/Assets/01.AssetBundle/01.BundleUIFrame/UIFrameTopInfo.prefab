@@ -78,6 +78,42 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
+--- !u!1 &457375741321146209
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 295320580526982207}
+  m_Layer: 5
+  m_Name: UITopInfoTop
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &295320580526982207
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 457375741321146209}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 781294876181766103}
+  m_Father: {fileID: 707219537529151782}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 1}
+  m_AnchorMax: {x: 0.5, y: 1}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 100, y: 100}
+  m_Pivot: {x: 0.5, y: 1}
 --- !u!1 &736782165934681861
 GameObject:
   m_ObjectHideFlags: 0
@@ -268,7 +304,8 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
-  - {fileID: 781294876181766103}
+  - {fileID: 761094255439580129}
+  - {fileID: 707219537529151782}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
@@ -526,7 +563,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 2896535244637049668}
         m_TargetAssemblyTypeName: UIWidgetTopInfoResources, TTCodeContents
-        m_MethodName: HandleButtonBuyCrystal
+        m_MethodName: HandleButtonTopInfoBuyCrystal
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -570,7 +607,7 @@ RectTransform:
   - {fileID: 83297258367107538}
   - {fileID: 831349856963953112}
   - {fileID: 432661145264794132}
-  m_Father: {fileID: 5488805032029562090}
+  m_Father: {fileID: 295320580526982207}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 1}
   m_AnchorMax: {x: 0.5, y: 1}
@@ -904,7 +941,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 2896535244637049668}
         m_TargetAssemblyTypeName: UIWidgetTopInfoResources, TTCodeContents
-        m_MethodName: HandleButtonBuyHeart
+        m_MethodName: HandleButtonTopInfoBuyHeart
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -995,6 +1032,42 @@ MonoBehaviour:
   m_Text: 999,999,999
   FontSetID: 0
   LocalizeingKey: 
+--- !u!1 &7059257521536383906
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 707219537529151782}
+  m_Layer: 5
+  m_Name: UIFrameTopInfoFront
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &707219537529151782
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7059257521536383906}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 295320580526982207}
+  m_Father: {fileID: 5488805032029562090}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 1, y: 1}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 0, y: 0}
+  m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &7778543722574184488
 GameObject:
   m_ObjectHideFlags: 0
@@ -1117,7 +1190,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 2896535244637049668}
         m_TargetAssemblyTypeName: UIWidgetTopInfoResources, TTCodeContents
-        m_MethodName: HandleButtonBuyGold
+        m_MethodName: HandleButtonTopInfoBuyGold
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -1205,6 +1278,41 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
+--- !u!1 &8506076891978591523
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 761094255439580129}
+  m_Layer: 5
+  m_Name: UIFrameTopInfoBack
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &761094255439580129
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8506076891978591523}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 5488805032029562090}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 1, y: 1}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 0, y: 0}
+  m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &9094685843445368396
 GameObject:
   m_ObjectHideFlags: 0

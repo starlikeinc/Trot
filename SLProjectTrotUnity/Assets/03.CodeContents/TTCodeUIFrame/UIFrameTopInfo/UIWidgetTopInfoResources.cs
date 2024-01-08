@@ -9,7 +9,7 @@ public class UIWidgetTopInfoResources : UIWidgetTTBase
     [SerializeField] private CText TxtCrystal;
     //---------------------------------------------------------
 
-    public void HandleButtonBuyHeart() { }
-    public void HandleButtonBuyGold() { }
-    public void HandleButtonBuyCrystal() { }
+    public void HandleButtonTopInfoBuyHeart() { }
+    public void HandleButtonTopInfoBuyGold() { }
+    public void HandleButtonTopInfoBuyCrystal() { }
 }
