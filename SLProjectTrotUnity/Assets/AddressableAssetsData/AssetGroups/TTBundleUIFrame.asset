@@ -47,6 +47,12 @@ MonoBehaviour:
     m_SerializedLabels:
     - Main
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: d77ee0f3faab8d54ab7fb10a98194b71
+    m_Address: UIFrameTopInfo
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Main
+    FlaggedDuringContentUpdateRestriction: 0
   m_ReadOnly: 0
   m_Settings: {fileID: 11400000, guid: 14bdc69b63a9cdb41b9e073210868ecd, type: 2}
   m_SchemaSet:

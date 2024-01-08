@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class UIFrameAchievement : UIFrameTTBase
 {
-    public void HandleOnClickButtonReturn() { }
+    public void HandleButtonReturn() { }
 
-    public void HandleOnClickButtonGetRewardAll() { }
+    public void HandleButtonGetRewardAll() { }
 }
