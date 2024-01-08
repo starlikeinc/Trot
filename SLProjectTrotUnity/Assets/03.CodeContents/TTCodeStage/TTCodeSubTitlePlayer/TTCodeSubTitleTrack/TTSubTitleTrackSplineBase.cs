@@ -2,91 +2,93 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Splines;
-using uTools;
 
 public abstract class TTSubTitleTrackSplineBase : TTSubTitleTrackBase
 {
 	[System.Serializable]
 	public class SSplineSection
 	{
-		public float TrackLength;
-		public float PlayDuration;
-		public AnimationCurve MoveCurve;
+		public float			TrackLength;
+		public float			TrackDuration;
+		public AnimationCurve   TrackCurve;
 		[HideInInspector]
-		public float TimeStart;
+		public float TrackPrevDuration;
 		[HideInInspector]
-		public float LengthStart;
+		public float TrackPrevLength;
 	}
 
 	[SerializeField]
-	private SplineContainer SplineTrack = null;
+	private SplineContainer		SplineTrack = null;
 
 	private float m_fTrackLength = 0;
+	private float m_fSplinePerSecond = 0;
+	private float m_fSplineLength = 0;
+	
 
 	[SerializeField]
 	private List<SSplineSection> SplineSection = null;
 	//----------------------------------------------------------------------------
 	protected override void OnUnityAwake()
 	{
-		float fPrevTime = 0;
+		float fPrevDuration = 0;
 		float fPrevLength = 0;
 		for (int i = 0; i < SplineSection.Count; i++)
 		{
-			SplineSection[i].TimeStart = fPrevTime;
-			SplineSection[i].LengthStart = fPrevLength;
-
-			fPrevTime = SplineSection[i].PlayDuration;
-			fPrevLength = SplineSection[i].TrackLength;
+			SplineSection[i].TrackPrevDuration = fPrevDuration;
+			SplineSection[i].TrackPrevLength = fPrevLength;
+			fPrevDuration += SplineSection[i].TrackDuration;
+			fPrevLength += SplineSection[i].TrackLength;
 		}
 	}
 
 	protected override void OnSubTitleTrackStart(float fTrackLength)
 	{
 		m_fTrackLength = fTrackLength;
+		m_fSplinePerSecond = 1f / fTrackLength;
+		m_fSplineLength = SplineTrack.Spline.GetLength();
 	}
 	//-----------------------------------------------------------------------------
-	protected sealed override void OnSubTitleTrackUpdate(float fTrackTime)
+	protected sealed override void OnSubTitleTrackUpdate(float fTrackTime, float fTrackDelta)
 	{
 		SSplineSection pSection = FindTrackSplineSection(fTrackTime);
 		if (pSection != null)
 		{
-			PrivTrackSplineRefresh(pSection, fTrackTime);
+			PrivTrackSplineRefresh(pSection, fTrackTime, fTrackDelta);
 		}
 	}
 
 
 	//----------------------------------------------------------------------------
-	private void PrivTrackSplineRefresh(SSplineSection pSplineSection, float fTrackTime)
+	private void PrivTrackSplineRefresh(SSplineSection pSplineSection, float fTrackTime, float fTrackDelta)
 	{
 		if (fTrackTime >= 10f)
 		{
 			 
-		}	
+		}
+	//	fTrackTime = 5f;
 
-		float fTrackSplineRate = pSplineSection.TrackLength / m_fTrackLength; // 이번 섹션에서 진행할 스플라인의 비율 
-		float fSectionTimeRate = (fTrackTime - pSplineSection.TimeStart) / pSplineSection.PlayDuration;
-		float fCurveRate = pSplineSection.MoveCurve.Evaluate(fSectionTimeRate);
-		float fSplineLength = fCurveRate * fTrackSplineRate + (pSplineSection.LengthStart / m_fTrackLength); 
+		float fSplineRateStartLength = pSplineSection.TrackPrevLength * m_fSplinePerSecond;
+		float fTrackPerSecond = pSplineSection.TrackLength / pSplineSection.TrackDuration;
+		float fTrackLengthRate = (fTrackTime - pSplineSection.TrackPrevDuration) / pSplineSection.TrackDuration;
+		float fCurveValue = pSplineSection.TrackCurve.Evaluate(fTrackLengthRate);
+		float fTrackPosition = fCurveValue * fTrackPerSecond * pSplineSection.TrackDuration;
+		float fSplineRate =  (fTrackPosition / m_fSplineLength) + fSplineRateStartLength;
 
-		Vector3 vecSplinePosition = SplineTrack.EvaluatePosition(fSplineLength);
+		Vector3 vecSplinePosition = SplineTrack.EvaluatePosition(fSplineRate);
 		OnSubTitleTrackSplinePosition(vecSplinePosition);
 	}
 
 	private SSplineSection FindTrackSplineSection(float fTrackTime)
 	{
-		SSplineSection pFindSection = null;
-
-		float fPrevValue = 0;
+		SSplineSection pFindSection = null;	
 		for (int i = 0; i < SplineSection.Count; i++)
 		{
 			SSplineSection pSection = SplineSection[i];
-			if (fTrackTime >= pSection.TimeStart && fTrackTime < (fPrevValue + pSection.PlayDuration))
+			if (fTrackTime >= pSection.TrackPrevDuration && fTrackTime < (pSection.TrackPrevDuration + pSection.TrackDuration))
 			{
 				pFindSection = pSection;
 				break;
-			}
-
-			fPrevValue = pSection.PlayDuration;
+			}		
 		}
 		return pFindSection;
 	}

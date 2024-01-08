@@ -6,15 +6,18 @@ public abstract class TTSubTitleTrackBase : CMonoBase
 {
 
 
-
+	private float m_fPrevTrackTime = 0;
 	//-------------------------------------------------------------
 	public void InterSubTitleTrackUpdate(float fTrackTime)
-	{ 
-		OnSubTitleTrackUpdate(fTrackTime);
+	{
+		float fTrackDelta = fTrackTime - m_fPrevTrackTime;
+		m_fPrevTrackTime = fTrackTime;
+		OnSubTitleTrackUpdate(fTrackTime, fTrackDelta);
 	}
 
 	public void InterSubTitleTrackStart(float fTrackLength)
 	{
+		m_fPrevTrackTime = 0;
 		OnSubTitleTrackStart(fTrackLength);
 	}
 
@@ -25,7 +28,7 @@ public abstract class TTSubTitleTrackBase : CMonoBase
 
 
 	//---------------------------------------------------------------
-	protected virtual void OnSubTitleTrackUpdate(float fTrackTime) { }
+	protected virtual void OnSubTitleTrackUpdate(float fTrackTime, float fTrackDelta) { }
 	protected virtual void OnSubTitleTrackStart(float fTrackLength) { }
 	protected virtual void OnSubTitleTrackEnd() { }
 }

@@ -202,7 +202,7 @@ MonoBehaviour:
           z: 0
           w: 1
     - Position:
-        x: 14
+        x: 15
         y: 0
         z: 0
       TangentIn:
@@ -223,8 +223,8 @@ MonoBehaviour:
     - Mode: 3
       Tension: 0.5
       m_DistanceToInterpolation:
-      - Distance: 0
-        T: 0
+      - Distance: -1
+        T: -1
       - Distance: 0.04879249
         T: 0.03448276
       - Distance: 0.19057772
@@ -640,7 +640,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   BoardTimeStart: 0
-  BoardTimeEnd: 30
+  BoardTimeEnd: 20
 --- !u!1 &749010939 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 1437117219337858765, guid: a40f8fb5372a1064488c3b1dd62e376f,
@@ -718,7 +718,7 @@ Transform:
   m_GameObject: {fileID: 1017840116}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -7, y: -2.94, z: 0.708}
+  m_LocalPosition: {x: 0, y: -2.94, z: 0.708}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -740,60 +740,62 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   SplineTrack: {fileID: 54955466}
   SplineSection:
-  - TrackLength: 8
-    PlayDuration: 10
-    MoveCurve:
+  - TrackLength: 5
+    TrackDuration: 10
+    TrackCurve:
       serializedVersion: 2
       m_Curve:
       - serializedVersion: 3
         time: 0
         value: 0
-        inSlope: 1
-        outSlope: 1
-        tangentMode: 34
-        weightedMode: 0
-        inWeight: 0
-        outWeight: 0
-      - serializedVersion: 3
-        time: 1
-        value: 1
-        inSlope: 1
-        outSlope: 1
-        tangentMode: 34
-        weightedMode: 0
-        inWeight: 0
-        outWeight: 0
-      m_PreInfinity: 2
-      m_PostInfinity: 2
-      m_RotationOrder: 4
-    TimeStart: 0
-  - TrackLength: 12
-    PlayDuration: 7
-    MoveCurve:
-      serializedVersion: 2
-      m_Curve:
-      - serializedVersion: 3
-        time: 0
-        value: 0
-        inSlope: 2
-        outSlope: 2
-        tangentMode: 0
-        weightedMode: 0
-        inWeight: 0
-        outWeight: 0
-      - serializedVersion: 3
-        time: 1
-        value: 1
         inSlope: 0
         outSlope: 0
         tangentMode: 0
         weightedMode: 0
         inWeight: 0
         outWeight: 0
+      - serializedVersion: 3
+        time: 1
+        value: 1
+        inSlope: 2
+        outSlope: 2
+        tangentMode: 0
+        weightedMode: 0
+        inWeight: 0
+        outWeight: 0
       m_PreInfinity: 2
       m_PostInfinity: 2
       m_RotationOrder: 4
-    TimeStart: 0
+    TrackPrevDuration: 0
+    TrackPrevLength: 0
+  - TrackLength: 15
+    TrackDuration: 10
+    TrackCurve:
+      serializedVersion: 2
+      m_Curve:
+      - serializedVersion: 3
+        time: 0
+        value: 0
+        inSlope: 1
+        outSlope: 1
+        tangentMode: 34
+        weightedMode: 0
+        inWeight: 0
+        outWeight: 0
+      - serializedVersion: 3
+        time: 1
+        value: 1
+        inSlope: 1
+        outSlope: 1
+        tangentMode: 34
+        weightedMode: 0
+        inWeight: 0
+        outWeight: 0
+      m_PreInfinity: 2
+      m_PostInfinity: 2
+      m_RotationOrder: 4
+    TrackPrevDuration: 0
+    TrackPrevLength: 0
   EffectThumb: {fileID: 749010939}
 --- !u!1001 &1319686162
 PrefabInstance:
