@@ -50,7 +50,7 @@ public abstract class TTSubTitleTrackSplineBase : TTSubTitleTrackBase
 	//-----------------------------------------------------------------------------
 	protected sealed override void OnSubTitleTrackUpdate(float fTrackTime, float fTrackDelta)
 	{
-	//	fTrackTime = 10.1f;
+		fTrackTime = 9.91f;
 
 		SSplineSection pSection = FindTrackSplineSection(fTrackTime);
 		if (pSection != null)
