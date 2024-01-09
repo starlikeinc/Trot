@@ -5,7 +5,7 @@ using UnityEngine;
 public abstract class TTSubTitleTrackBeatBase : TTSubTitleTrackBase
 {
 
-	private List<TTTrackNoteBase> m_listBeatNote = new List<TTTrackNoteBase>();
+	
 	//------------------------------------------------------------------------
 	protected override void OnSubTitleTrackStart(float fTrackLength)
 	{
@@ -22,7 +22,7 @@ public abstract class TTSubTitleTrackBeatBase : TTSubTitleTrackBase
 	protected override void OnSubTitleTrackInitialize(TTSubTitleBoard pTrackOnwer)
 	{
 		base.OnSubTitleTrackInitialize(pTrackOnwer);
-		GetComponentsInChildOneDepth(m_listBeatNote);
+		
 	}
 
 
