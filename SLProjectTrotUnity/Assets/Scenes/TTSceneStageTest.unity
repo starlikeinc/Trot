@@ -148,7 +148,7 @@ Transform:
   m_GameObject: {fileID: 558294}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.37, y: -1.9, z: 0.98}
+  m_LocalPosition: {x: -0.37, y: -1.9, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -240,17 +240,17 @@ MonoBehaviour:
           z: 0
           w: 1
     - Position:
-        x: 14.5
+        x: 14
         y: 0
         z: 0
       TangentIn:
         x: -0
         y: -0
-        z: -1.45
+        z: -1.4
       TangentOut:
         x: 0
         y: 0
-        z: 1.45
+        z: 1.4
       Rotation:
         value:
           x: 0
@@ -548,8 +548,8 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
+  m_SortingLayerID: 1455442567
+  m_SortingLayer: 3
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: c084b6f5088b276479d0796a8be2853d, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -677,8 +677,8 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
+  m_SortingLayerID: 1455442567
+  m_SortingLayer: 3
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: c084b6f5088b276479d0796a8be2853d, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -984,7 +984,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   BoardTimeStart: 0
-  BoardTimeEnd: 30
+  BoardTimeEnd: 20
 --- !u!1 &749010939 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 1437117219337858765, guid: a40f8fb5372a1064488c3b1dd62e376f,
@@ -1017,7 +1017,7 @@ Transform:
   m_GameObject: {fileID: 785536577}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: -1}
+  m_LocalPosition: {x: 0, y: 0, z: -0.1}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -1062,7 +1062,7 @@ Transform:
   m_GameObject: {fileID: 1017840116}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -7, y: -2.94, z: 0.708}
+  m_LocalPosition: {x: -7, y: -2.94, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -1122,8 +1122,8 @@ MonoBehaviour:
       m_RotationOrder: 4
     TrackPrevDuration: 0
     TrackPrevLength: 0
-  - TrackLength: 20
-    TrackDuration: 16
+  - TrackLength: 10
+    TrackDuration: 6
     TrackCurve:
       serializedVersion: 2
       m_Curve:
@@ -1970,8 +1970,8 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
+  m_SortingLayerID: 1455442567
+  m_SortingLayer: 3
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: c084b6f5088b276479d0796a8be2853d, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}

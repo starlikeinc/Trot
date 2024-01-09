@@ -20,7 +20,7 @@ public abstract class TTSubTitleTrackSplineBase : TTSubTitleTrackBase
 	[SerializeField]
 	private SplineContainer		SplineTrack = null;
 
-	private float m_fTrackLength = 0;
+	private float m_fTotalTrackLength = 0;
 	private float m_fSplinePerSecond = 0;
 	private float m_fSplineLength = 0;
 	
@@ -43,15 +43,13 @@ public abstract class TTSubTitleTrackSplineBase : TTSubTitleTrackBase
 
 	protected override void OnSubTitleTrackStart(float fTrackLength)
 	{
-		m_fTrackLength = fTrackLength;
+		m_fTotalTrackLength = fTrackLength;
 		m_fSplinePerSecond = 1f / fTrackLength;
 		m_fSplineLength = SplineTrack.Spline.GetLength();
 	}
 	//-----------------------------------------------------------------------------
 	protected sealed override void OnSubTitleTrackUpdate(float fTrackTime, float fTrackDelta)
-	{
-		fTrackTime = 9.91f;
-
+	{	
 		SSplineSection pSection = FindTrackSplineSection(fTrackTime);
 		if (pSection != null)
 		{
@@ -63,16 +61,16 @@ public abstract class TTSubTitleTrackSplineBase : TTSubTitleTrackBase
 	//----------------------------------------------------------------------------
 	private void PrivTrackSplineRefresh(SSplineSection pSplineSection, float fTrackTime, float fTrackDelta)
 	{
-		float fSplineRateStartLength = pSplineSection.TrackPrevLength / m_fSplineLength;
-		float fTrackPerSecond = pSplineSection.TrackLength / pSplineSection.TrackDuration;
-		float fTrackLengthRate = (fTrackTime - pSplineSection.TrackPrevDuration) / pSplineSection.TrackDuration;
-		float fCurveValue = pSplineSection.TrackCurve.Evaluate(fTrackLengthRate);
-		float fTrackPosition = fCurveValue * fTrackPerSecond * pSplineSection.TrackDuration;
-		float fSplineRate =  (fTrackPosition / m_fSplineLength) + fSplineRateStartLength;
+		float fSplineRateStartLength = pSplineSection.TrackPrevLength / m_fTotalTrackLength;
+		float fTrackSplineRate = pSplineSection.TrackLength / m_fTotalTrackLength;
 
-		
+		float fTrackTimeRateCurrent = (fTrackTime - pSplineSection.TrackPrevDuration) / pSplineSection.TrackDuration;
+		float fCurveValue = pSplineSection.TrackCurve.Evaluate(fTrackTimeRateCurrent);
+		float fSplineRate = (fCurveValue * fTrackSplineRate) + fSplineRateStartLength;
+			
 		Vector3 vecSplinePosition = SplineTrack.EvaluatePosition(fSplineRate);
 		Quaternion rQuat = ExtractTrackSplineRotation(fSplineRate);
+
 		OnSubTitleTrackSplinePositionAndRotation(vecSplinePosition, rQuat);
 	}
 
