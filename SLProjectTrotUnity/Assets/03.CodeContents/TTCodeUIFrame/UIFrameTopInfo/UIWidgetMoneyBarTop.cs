@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class UIWidgetTopInfoResources : UIWidgetTTBase
+public class UIWidgetMoneyBarTop : UIWidgetTTBase
 {
     [SerializeField] private CText TxtHeart;
     [SerializeField] private CText TxtGold;

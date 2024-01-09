@@ -48,7 +48,7 @@ MonoBehaviour:
     - Main
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: d77ee0f3faab8d54ab7fb10a98194b71
-    m_Address: UIFrameTopInfo
+    m_Address: UIFrameMoneyBar
     m_ReadOnly: 0
     m_SerializedLabels:
     - Main

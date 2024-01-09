@@ -88,7 +88,7 @@ GameObject:
   m_Component:
   - component: {fileID: 295320580526982207}
   m_Layer: 5
-  m_Name: UITopInfoTop
+  m_Name: UIPivotTop
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -284,9 +284,9 @@ GameObject:
   - component: {fileID: 5488805032029562090}
   - component: {fileID: 6893882467330815235}
   - component: {fileID: 8928266010387553393}
-  - component: {fileID: 7095462599580326469}
+  - component: {fileID: 1870317419789189566}
   m_Layer: 5
-  m_Name: UIFrameTopInfo
+  m_Name: UIFrameMoneyBar
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -353,7 +353,7 @@ MonoBehaviour:
   m_BlockingMask:
     serializedVersion: 2
     m_Bits: 4294967295
---- !u!114 &7095462599580326469
+--- !u!114 &1870317419789189566
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -362,10 +362,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 2129055117773188441}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9c720c65ec6b49249b175ecff1454afe, type: 3}
+  m_Script: {fileID: 11500000, guid: 955dfdb0e81c0d248a7412e589ba298d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  FocusType: 3
+  FocusType: 5
 --- !u!1 &2998061085233997074
 GameObject:
   m_ObjectHideFlags: 0
@@ -454,7 +454,7 @@ GameObject:
   - component: {fileID: 9164095958560794542}
   - component: {fileID: 1968263313562131826}
   m_Layer: 5
-  m_Name: UIButtonBuyCrystal
+  m_Name: UIBtnBuyCrystal
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -561,8 +561,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 2896535244637049668}
-        m_TargetAssemblyTypeName: UIWidgetTopInfoResources, TTCodeContents
+      - m_Target: {fileID: 3451709789924875872}
+        m_TargetAssemblyTypeName: UIWidgetMoneyBarTop, TTCodeContents
         m_MethodName: HandleButtonTopInfoBuyCrystal
         m_Mode: 1
         m_Arguments:
@@ -584,9 +584,9 @@ GameObject:
   - component: {fileID: 781294876181766103}
   - component: {fileID: 5710729021093712510}
   - component: {fileID: 7066689070061366059}
-  - component: {fileID: 2896535244637049668}
+  - component: {fileID: 3451709789924875872}
   m_Layer: 5
-  m_Name: UITopInfoResourcesBack
+  m_Name: UIMoneyBarTop
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -654,7 +654,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_HorizontalFit: 2
   m_VerticalFit: 0
---- !u!114 &2896535244637049668
+--- !u!114 &3451709789924875872
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -663,7 +663,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 3373428878855555494}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6ce6b9a01cac06c48ad42ce45e149a83, type: 3}
+  m_Script: {fileID: 11500000, guid: e7934ee885e7c084f8f83dda320ecf2f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   TxtHeart: {fileID: 6644407036742888876}
@@ -832,7 +832,7 @@ GameObject:
   - component: {fileID: 6428442257777412665}
   - component: {fileID: 525839597212852809}
   m_Layer: 5
-  m_Name: UIButtonBuyHeart
+  m_Name: UIBtnBuyHeart
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -939,8 +939,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 2896535244637049668}
-        m_TargetAssemblyTypeName: UIWidgetTopInfoResources, TTCodeContents
+      - m_Target: {fileID: 3451709789924875872}
+        m_TargetAssemblyTypeName: UIWidgetMoneyBarTop, TTCodeContents
         m_MethodName: HandleButtonTopInfoBuyHeart
         m_Mode: 1
         m_Arguments:
@@ -1042,7 +1042,7 @@ GameObject:
   m_Component:
   - component: {fileID: 707219537529151782}
   m_Layer: 5
-  m_Name: UIFrameTopInfoFront
+  m_Name: UIFrameMoneyBarFront
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1081,7 +1081,7 @@ GameObject:
   - component: {fileID: 7803006085989368633}
   - component: {fileID: 8635368484108747266}
   m_Layer: 5
-  m_Name: UIButtonBuyGold
+  m_Name: UIBtnBuyGold
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1188,8 +1188,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 2896535244637049668}
-        m_TargetAssemblyTypeName: UIWidgetTopInfoResources, TTCodeContents
+      - m_Target: {fileID: 3451709789924875872}
+        m_TargetAssemblyTypeName: UIWidgetMoneyBarTop, TTCodeContents
         m_MethodName: HandleButtonTopInfoBuyGold
         m_Mode: 1
         m_Arguments:
@@ -1288,7 +1288,7 @@ GameObject:
   m_Component:
   - component: {fileID: 761094255439580129}
   m_Layer: 5
-  m_Name: UIFrameTopInfoBack
+  m_Name: UIFrameMoneyBarBack
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
