@@ -7,7 +7,7 @@ Material:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: TestMaterial
+  m_Name: TTMatTextAnimationFill
   m_Shader: {fileID: 4800000, guid: 5eebb4510ce5c9f468ff76aa046e1afc, type: 3}
   m_Parent: {fileID: 0}
   m_ModifiedSerializedProperties: 0
@@ -77,7 +77,7 @@ Material:
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _MainTex:
-        m_Texture: {fileID: 2800000, guid: 8da582989d8a76048a2db724017232a2, type: 3}
+        m_Texture: {fileID: 0}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _MetalMask:
@@ -141,7 +141,7 @@ Material:
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _UberNoiseTexture:
-        m_Texture: {fileID: 0}
+        m_Texture: {fileID: 2800000, guid: 437708cab49504155906d9dda615f010, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _texcoord:
@@ -225,11 +225,11 @@ Material:
     - _DirectionalDistortionRandomDirection: 0.1
     - _DirectionalDistortionRotation: 0
     - _DirectionalDistortionWidth: 0.5
-    - _DirectionalGlowFadeFade: -0.21
+    - _DirectionalGlowFadeFade: 0.64
     - _DirectionalGlowFadeInvert: 0
-    - _DirectionalGlowFadeNoiseFactor: -0.07
-    - _DirectionalGlowFadeRotation: 15
-    - _DirectionalGlowFadeWidth: 0.1
+    - _DirectionalGlowFadeNoiseFactor: 0
+    - _DirectionalGlowFadeRotation: 90
+    - _DirectionalGlowFadeWidth: 0
     - _DstBlend: 0
     - _DstBlendAlpha: 0
     - _EnableAddColor: 0
@@ -569,8 +569,8 @@ Material:
     - _DirectionalDistortionDistortion: {r: 0, g: 0.1, b: 0, a: 0}
     - _DirectionalDistortionDistortionScale: {r: 1, g: 1, b: 0, a: 0}
     - _DirectionalDistortionNoiseScale: {r: 0.4, g: 0.4, b: 0, a: 0}
-    - _DirectionalGlowFadeEdgeColor: {r: 2.7735956, g: 4.0307803, b: 9.059519, a: 0}
-    - _DirectionalGlowFadeNoiseScale: {r: -3.41, g: -7.17, b: 0, a: 0}
+    - _DirectionalGlowFadeEdgeColor: {r: 1, g: 1, b: 1, a: 0}
+    - _DirectionalGlowFadeNoiseScale: {r: 0, g: 0, b: 0, a: 0}
     - _EmissionColor: {r: 0, g: 0, b: 0, a: 1}
     - _EnchantedHighColor: {r: 0, g: 0.7098798, b: 4.237095, a: 0}
     - _EnchantedLowColor: {r: 2.996078, g: 0, b: 0, a: 0}

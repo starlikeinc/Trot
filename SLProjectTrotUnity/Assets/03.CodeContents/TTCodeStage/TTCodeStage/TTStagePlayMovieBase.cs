@@ -61,10 +61,11 @@ public abstract class TTStagePlayMovieBase : TTStagePlayBase
 			pVideoPlayer.seekCompleted += (VideoPlayer pVideoPlayer) =>
 			{
 				pVideoPlayer.Play();
-				pVideoPlayer.started += (VideoPlayer pVideoPlayer) =>
-				{
-					PrivStageMovieStart(fBoardTimeStart, MoviePlayer.clip.length);
-				};
+				PrivStageMovieStart(fBoardTimeStart, MoviePlayer.clip.length);
+				//pVideoPlayer.started += (VideoPlayer pVideoPlayer) =>
+				//{
+					
+				//};
 			};
 		};
 	}

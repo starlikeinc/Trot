@@ -5,7 +5,7 @@ using UnityEngine;
 public abstract class TTSubTitleTrackBase : CMonoBase
 {
 
-
+	private TTSubTitleBoard m_pOwnerBoard = null;
 	private float m_fPrevTrackTime = 0;
 	//-------------------------------------------------------------
 	public void InterSubTitleTrackUpdate(float fTrackTime)
@@ -26,9 +26,16 @@ public abstract class TTSubTitleTrackBase : CMonoBase
 		OnSubTitleTrackEnd();
 	}
 
+	public void InterSubTitleTrackInitialize(TTSubTitleBoard pTrackOnwer)
+	{
+		m_pOwnerBoard = pTrackOnwer;
+		OnSubTitleTrackInitialize(pTrackOnwer);
+	}
+	
 
 	//---------------------------------------------------------------
 	protected virtual void OnSubTitleTrackUpdate(float fTrackTime, float fTrackDelta) { }
 	protected virtual void OnSubTitleTrackStart(float fTrackLength) { }
 	protected virtual void OnSubTitleTrackEnd() { }
+	protected virtual void OnSubTitleTrackInitialize(TTSubTitleBoard pTrackOnwer) { }
 }

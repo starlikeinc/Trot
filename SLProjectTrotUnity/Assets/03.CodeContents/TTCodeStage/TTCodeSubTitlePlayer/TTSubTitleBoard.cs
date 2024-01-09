@@ -21,6 +21,11 @@ public class TTSubTitleBoard : CMonoBase
 	{
 		base.OnUnityAwake();
 		GetComponentsInChildOneDepth(m_listSubTitleTrack);
+
+		for (int i = 0; i < m_listSubTitleTrack.Count; i++)
+		{
+			m_listSubTitleTrack[i].InterSubTitleTrackInitialize(this);
+		}
 	}
 
 	//----------------------------------------------------------
